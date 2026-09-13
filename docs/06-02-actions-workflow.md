@@ -8,7 +8,9 @@
 
 PR에서는 테스트와 빌드만 실행하고, `main` 반영 후에만 Pages에 배포합니다.
 테스트 실패를 무시하거나 배포를 독립 실행하면 검증되지 않은 버전이 공개됩니다.
-아래 워크플로는 검사·빌드 job 성공을 배포의 필수 조건으로 둡니다.
+이번에는 **참가자가 Copilot app에 프롬프트를 입력해 자신의 게임 저장소에 워크플로를 생성**합니다.
+YAML을 직접 작성하거나 참고 샘플을 복사하는 것이 필수는 아닙니다.
+생성할 워크플로는 검사·빌드 job 성공을 배포의 필수 조건으로 둡니다.
 수동 실행도 `main`에서만 배포하며 PR에는 배포 토큰 권한을 주지 않습니다.
 
 ## 2. 시작 상태
@@ -20,30 +22,83 @@ PR에서는 테스트와 빌드만 실행하고, `main` 반영 후에만 Pages�
 
 ## 3. 실행: 검토 후 파일 작성
 
+아래 **텍스트 프롬프트 블록만** Copilot app의 게임 작업 세션에 복사합니다.
+GitHub에서 읽는 안내서와 참고 YAML은 app 대화에 자동 전달되지 않습니다.
+계획 프롬프트에는 필요한 조건을 모두 포함하며, 승인 프롬프트는 같은 세션에서 검토한 계획을 참조합니다.
+
+### 3-1. Plan에서 배포 계획 요청
+
 ```text
-AGENTS.md, TRD.md, 테스트 설정과 package.json을 읽고 Pages CI 계획을 제안해줘.
-아래 안내의 YAML과 현재 프로젝트가 맞는지 읽기 전용으로 검토해줘.
-Node 24, npm ci, Node 테스트, Playwright Chromium e2e, Vite build 순서로 검증한다.
-PR은 검증만, main push와 main에서의 workflow_dispatch만 배포한다.
-Vite base './'와 dist 출력, e2e 서버의 CI 종료 동작도 점검해줘.
-필요한 파일 변경과 로컬 확인 명령을 제시하고 승인 전에는 변경하지 마.
+내가 이 저장소에서 완성한 Space Invaders 게임을
+GitHub Actions로 GitHub Pages에 배포할 계획을 제안해줘.
+배포 대상은 현재 참가자 게임 저장소이며 실습 안내 저장소가 아니다.
+완성 YAML이나 외부 템플릿을 제공하지 않으므로 현재 프로젝트와 아래 조건으로 설계해줘.
+
+AGENTS.md, PRD.md, TRD.md, TEST_RESULTS.md, package.json과 잠금 파일,
+Vite·Playwright 설정, 기존 .github/workflows 파일을 읽기 전용으로 확인해줘.
+필수 파일이 없거나 설정이 조건과 다르면 임의로 바꾸지 말고 차이를 알려줘.
+
+- 생성할 파일은 저장소 루트 기준 .github/workflows/pages.yml이다.
+- 워크플로 이름은 Check and deploy Pages로 한다.
+- main 대상 pull_request에서는 테스트·빌드만 실행한다.
+- main push 또는 main에서의 workflow_dispatch만 Pages 배포를 허용한다.
+  다른 브랜치의 수동 실행과 PR은 아티팩트 업로드·배포를 하지 않는다.
+- Ubuntu runner와 Node.js 24를 사용하고 잠금 파일로 npm ci를 실행한다.
+- npm test → npx playwright install --with-deps chromium →
+  npm run test:e2e → npm run build 순서로 실행한다.
+  실제 scripts와 Chromium 프로젝트·webServer 수명 관리가 맞는지 확인한다.
+- Vite base는 './'이며 dist의 게임 빌드 결과만 Pages 아티팩트로 올린다.
+  저장소 전체, 개발 문서, 테스트, node_modules는 배포하지 않는다.
+- build와 deploy job을 분리하고 deploy는 needs: build로 성공한 빌드에 의존한다.
+  실패를 continue-on-error나 always()로 무시하지 않는다.
+- 기본 권한은 contents: read로 하고 deploy에만 pages: write와 id-token: write를 준다.
+  pull_request_target이나 개인 액세스 토큰을 사용하지 않는다.
+- actions/configure-pages, actions/upload-pages-artifact, actions/deploy-pages를 사용한다.
+- 배포 환경은 github-pages이며 실제 배포 출력 page_url을 환경 URL로 연결한다.
+- deploy job의 concurrency 그룹은 pages-deployment, cancel-in-progress는 false로 한다.
+  PR 검사가 진행 중 배포를 취소하지 않게 한다.
+
+내가 GitHub 웹에서 확인한 Pages Source는 GitHub Actions이며,
+github-pages 환경의 배포 브랜치는 main으로 제한하는 실습이다.
+실제 원격 설정을 확인하지 못하면 미확인이라고 구분해줘.
+변경할 파일, 각 조건의 구현 방법, 로컬 확인 명령과
+내가 직접 확인할 원격 설정을 제시해줘.
+파일 수정·설치·커밋·푸시·PR·원격 설정 변경·배포는 하지 말고 승인을 기다려줘.
 ```
 
-참가자가 계획을 승인한 후 **Interactive**로 전환합니다.
+계획이 현재 게임의 scripts·빌드 경로와 맞는지 확인한 후 **Interactive**로 전환합니다.
+세션이 바뀌어 승인할 계획을 찾을 수 없다면 계획부터 다시 확인합니다.
+
+### 3-2. 승인 후 워크플로 생성 요청
 
 ```text
-검토한 계획을 승인한다. .github/workflows/pages.yml을 작성해줘.
-아래 YAML을 기준으로 사용하되 기존 파일이 있으면 덮어쓰지 말고 차이를 검토해줘.
+방금 검토한 GitHub Actions → GitHub Pages 배포 계획을 승인한다.
+AGENTS.md와 현재 게임의 package.json·잠금 파일·Vite·Playwright 설정을 다시 읽고,
+참가자 게임 저장소 루트의 .github/workflows/pages.yml을 생성해줘.
+대화에서 승인한 계획을 찾을 수 없으면 추정하지 말고 다시 요청해줘.
+기존 파일이 있으면 덮어쓰지 말고 승인한 변경만 반영해줘.
+
+워크플로 이름 Check and deploy Pages, PR은 테스트·빌드만,
+main push/main 수동 실행만 배포, Node24와 npm ci,
+Node 테스트·Chromium 설치·E2E·빌드 순서를 유지해줘.
+dist만 업로드하고 deploy는 성공한 build에 의존하게 해줘.
+기본 contents: read, deploy의 pages: write/id-token: write,
+github-pages 환경과 실제 page_url, deploy에만 배포 동시성 제어를 적용해줘.
+Vite 상대 경로와 기존 게임 요구사항을 유지하고 개인 토큰을 요구하지 마.
+
 필요한 관련 설정 수정은 방금 승인한 범위에서만 하고 문서에 이유를 반영해줘.
 로컬 테스트·빌드 실행을 허용한다. 누락된 의존성은 잠금 파일로 복원하고,
-브라우저 누락 시 Chromium을 설치해줘. 푸시·PR·원격 실행은 하지 마.
-실행 결과와 diff를 보여주고 기다려줘.
+브라우저 누락 시 설치된 Playwright로 Chromium을 설치해줘.
+생성한 파일 내용·diff, 조건별 반영 위치, 실제 로컬 실행 결과를 보여줘.
+미수행 원격 Actions와 공개 URL 확인을 완료라고 말하지 마.
+커밋·푸시·PR·병합·원격 설정 변경·배포는 하지 말고 검토를 기다려줘.
 ```
 
-### 완전한 워크플로 예시
+### 생성 결과 비교용 참고 YAML
 
-참가자 저장소의 `.github/workflows/pages.yml` 내용입니다.
-실습 안내 저장소의 파일을 바꾸는 요청이 아닙니다.
+**이 YAML은 프롬프트에 반드시 붙여 넣어야 하는 입력이나 직접 복사할 정답이 아닙니다.**
+에이전트가 생성한 참가자 저장소의 `.github/workflows/pages.yml`을 비교·점검하는 예시입니다.
+표현이나 step 이름이 달라도 승인 조건을 만족하면 됩니다. 실습 안내 저장소의 파일을 바꾸는 요청이 아닙니다.
 
 ```yaml
 name: Check and deploy Pages
@@ -123,6 +178,19 @@ PR에는 `pull_request_target`을 쓰지 않고 기본 읽기 권한만 부여�
 | 권한 | 저장소 전체 쓰기가 아닌 deploy의 Pages·OIDC 권한 |
 | 설치 | 잠금 파일과 `npm ci`, CI Chromium은 `--with-deps` |
 | 증거 | 로컬 YAML 검토와 실제 원격 실행 성공을 구분 |
+
+```text
+생성한 .github/workflows/pages.yml과 실제 게임 설정을 읽기 전용으로 대조해줘.
+승인한 계획의 조건마다 YAML의 어느 job/step/조건에 반영했는지 보여줘.
+PR, main push, main 수동 실행, 다른 브랜치 수동 실행 각각에서
+테스트·빌드·업로드·배포 중 무엇이 실행되는지 표로 설명해줘.
+게임의 dist만 Pages에 배포하는지, 검증 실패 시 배포가 차단되는지,
+Pages 설정은 참가자의 GitHub 웹 확인이 별도로 필요한지 점검해줘.
+충족/보완 필요/미확인으로 구분하고 파일 변경·원격 실행 없이 기다려줘.
+```
+
+참가자는 실제 파일이 **자신의 게임 저장소**에 생성되었는지 확인합니다.
+GitHub의 Pages Source 설정과 이 워크플로 파일이 모두 준비되어야 다음 배포 단계로 이동합니다.
 
 ## 5. 보완과 재확인
 
