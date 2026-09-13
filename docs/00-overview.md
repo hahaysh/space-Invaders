@@ -2,7 +2,7 @@
 
 [저장소 안내](../README.md) · [참고 자료](../REFERENCES.md)
 
-> **작성 상태:** 전체 설계 초안입니다. 현재 작성된 대표 모듈은 01-02이며, 나머지 모듈과 샘플은 준비 중입니다.
+> **확인 범위:** 문서와 로컬 실행 검증, 실제 app 조작, 원격 배포는 구분합니다. 최신 완료 상태는 [저장소 안내](../README.md)와 샘플 검증 기록을 확인하세요.
 
 ## 학습 목표
 
@@ -47,31 +47,31 @@ Vite와 테스트 도구는 개발용 의존성입니다. 배포된 게임은 �
 
 ## 전체 목차
 
-파일명은 확정된 작성 목록입니다. 전체 안내 1개와 아래 실습 21개로 총 22개입니다. **링크가 없는 항목은 아직 작성되지 않았습니다.**
+전체 안내 1개와 아래 실습 21개로 총 22개입니다. 각 파일은 실행과 점검을 마친 뒤 다음 단계로 넘어가도록 구성합니다.
 
 | 단계 | 파일 | 실습 |
 |---|---|---|
-| 1. 준비 | `01-01-environment-setup.md` | Public 저장소·app 프로젝트·세션 준비 |
+| 1. 준비 | [01-01-environment-setup.md](01-01-environment-setup.md) | Public 저장소·app 프로젝트·세션 준비 |
 | 1. 준비 | [01-02-document-design.md](01-02-document-design.md) | 개발 문서의 목적·목차·관계 정의 |
-| 1. 준비 | `01-03-agent-instructions.md` | 최소 `AGENTS.md` 작성 |
-| 2. 게임 설계 | `02-01-ideation.md` | 아이디어 논의와 `ideation.md` 작성 |
-| 2. 게임 설계 | `02-02-product-requirements.md` | 요구사항·수용 기준과 `PRD.md` 작성 |
-| 2. 게임 설계 | `02-03-technical-design.md` | 기술·테스트·배포 설계와 `TRD.md` 작성 |
-| 3. 점검 | `03-01-document-review.md` | 문서의 누락·충돌·모호함 수정 |
-| 3. 점검 | `03-02-design-approval.md` | 지침 보완과 설계 승인 |
-| 4. 설계 구현 | `04-01-implementation-plan.md` | 계획 검토·승인 후 문서화 |
-| 4. 설계 구현 | `04-02-first-playable.md` | 최소 플레이 가능한 버전 |
-| 4. 설계 구현 | `04-03-core-gameplay.md` | 필수 기능을 작은 단위로 구현 |
-| 5. 검증 | `05-01-requirements-testing.md` | 테스트 절차와 결과 기록 |
-| 5. 검증 | `05-02-fixes-and-regression.md` | 결함 수정과 회귀 검증 |
-| 6. 배포 | `06-01-deployment-setup.md` | Pages 설정과 공개 범위·권한 확인 |
-| 6. 배포 | `06-02-actions-workflow.md` | 테스트·빌드·Pages 워크플로 작성 |
-| 6. 배포 | `06-03-deploy-and-check.md` | PR·병합·배포 결과와 공개 URL 확인 |
-| 7. 개선 사이클 | `07-01-change-request.md` | 일시정지·재개 요청과 수용 기준 |
-| 7. 개선 사이클 | `07-02-impact-and-document-update.md` | 영향 분석과 필요한 문서 수정 |
-| 7. 개선 사이클 | `07-03-change-implementation.md` | 수정 계획 승인과 구현 |
-| 7. 개선 사이클 | `07-04-change-and-regression-testing.md` | 새 기능·기존 기능 검증 |
-| 7. 개선 사이클 | `07-05-redeploy-and-wrap-up.md` | 재배포·확인·회고 |
+| 1. 준비 | [01-03-agent-instructions.md](01-03-agent-instructions.md) | 최소 `AGENTS.md` 작성 |
+| 2. 게임 설계 | [02-01-ideation.md](02-01-ideation.md) | 아이디어 논의와 `ideation.md` 작성 |
+| 2. 게임 설계 | [02-02-product-requirements.md](02-02-product-requirements.md) | 요구사항·수용 기준과 `PRD.md` 작성 |
+| 2. 게임 설계 | [02-03-technical-design.md](02-03-technical-design.md) | 기술·테스트·배포 설계와 `TRD.md` 작성 |
+| 3. 점검 | [03-01-document-review.md](03-01-document-review.md) | 문서의 누락·충돌·모호함 수정 |
+| 3. 점검 | [03-02-design-approval.md](03-02-design-approval.md) | 지침 보완과 설계 승인 |
+| 4. 설계 구현 | [04-01-implementation-plan.md](04-01-implementation-plan.md) | 계획 검토·승인 후 문서화 |
+| 4. 설계 구현 | [04-02-first-playable.md](04-02-first-playable.md) | 최소 플레이 가능한 버전 |
+| 4. 설계 구현 | [04-03-core-gameplay.md](04-03-core-gameplay.md) | 필수 기능을 작은 단위로 구현 |
+| 5. 검증 | [05-01-requirements-testing.md](05-01-requirements-testing.md) | 테스트 절차와 결과 기록 |
+| 5. 검증 | [05-02-fixes-and-regression.md](05-02-fixes-and-regression.md) | 결함 수정과 회귀 검증 |
+| 6. 배포 | [06-01-deployment-setup.md](06-01-deployment-setup.md) | Pages 설정과 공개 범위·권한 확인 |
+| 6. 배포 | [06-02-actions-workflow.md](06-02-actions-workflow.md) | 테스트·빌드·Pages 워크플로 작성 |
+| 6. 배포 | [06-03-deploy-and-check.md](06-03-deploy-and-check.md) | PR·병합·배포 결과와 공개 URL 확인 |
+| 7. 개선 사이클 | [07-01-change-request.md](07-01-change-request.md) | 일시정지·재개 요청과 수용 기준 |
+| 7. 개선 사이클 | [07-02-impact-and-document-update.md](07-02-impact-and-document-update.md) | 영향 분석과 필요한 문서 수정 |
+| 7. 개선 사이클 | [07-03-change-implementation.md](07-03-change-implementation.md) | 수정 계획 승인과 구현 |
+| 7. 개선 사이클 | [07-04-change-and-regression-testing.md](07-04-change-and-regression-testing.md) | 새 기능·기존 기능 검증 |
+| 7. 개선 사이클 | [07-05-redeploy-and-wrap-up.md](07-05-redeploy-and-wrap-up.md) | 재배포·확인·회고 |
 
 ## 한 단계의 진행 방법
 
@@ -89,7 +89,7 @@ Plan은 계획 검토용, Interactive는 승인한 문서·코드 작업용으�
 ## 기록·공개·검증 원칙
 
 - 요구사항 ID를 설계·구현 작업·테스트와 연결합니다.
-- 참가자도 단계별 변경을 검토한 뒤 의미 있는 커밋을 남깁니다. 파일 변경이 없는 논의 단계에는 불필요한 빈 커밋을 만들지 않습니다.
+- 참가자도 단계별 변경을 검토한 뒤 한국어 제목·본문의 커밋을 남깁니다. 단계 번호, 변경 내용·이유, 확인 결과와 미확인 사항을 적습니다. 파일 변경이 없는 논의 단계에는 불필요한 빈 커밋을 만들지 않습니다.
 - 로컬 커밋과 원격 푸시는 다릅니다. Public 저장소에 게시할 내용과 대상 브랜치를 확인하고 푸시합니다.
 - 세션 브랜치의 변경은 PR로 검토하고 `main`에 병합한 뒤 배포하는 흐름을 사용합니다. 최초 저장소 부트스트랩 절차는 별도로 다룹니다.
 - API 키, 토큰, 개인 정보는 프롬프트 예시·문서·코드·로그에 넣지 않습니다.
