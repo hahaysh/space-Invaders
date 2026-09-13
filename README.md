@@ -6,15 +6,22 @@
 
 ## 현재 작성 상태
 
-대표 실습 검토를 거쳐 **전체 안내 1개와 단계별 실습 21개를 작성**했습니다. 샘플 구현과 리허설을 진행 중이며, **Copilot app의 전체 UI 절차와 원격 배포까지 검증된 완성본은 아닙니다.**
+대표 실습 검토를 거쳐 **전체 안내 1개와 단계별 실습 21개**, 최초·개선 버전 샘플을 작성하고 로컬 자동 검증을 마쳤습니다. **Copilot app의 전체 UI 절차와 원격 배포까지 검증된 완성본은 아닙니다.**
 
 | 자료 | 상태 |
 |---|---|
 | [전체 안내와 목차](docs/00-overview.md) | 7개 큰 단계, 전체 22개 Markdown 연결 |
 | [01-02 개발 문서의 역할과 구조 정의](docs/01-02-document-design.md) | 승인된 공통 실습 형식 |
 | 단계별 실습 안내서 | 준비부터 개선·재배포까지 작성 완료, 리허설에 따라 보완 |
-| [최초·개선 버전 샘플 안내](src/game-samples/README.md) | 최초 버전 구현·로컬 검증 완료, 개선 버전 진행 중 |
+| [최초 버전](src/game-samples/first-release/README.md) | Node 35개·Chromium 10개, 빌드·하위 경로 검사 통과 |
+| [개선 버전](src/game-samples/improved-release/README.md) | Node 42개·Chromium 13개, 빌드·하위 경로·정지/재개 검사 통과 |
 | Copilot app 시작 절차·Pages 배포 리허설 | 미확인, 완료로 간주하지 않음 |
+
+## 참고 화면
+
+![일시정지 개선 버전의 실제 빌드 화면](src/game-samples/images/improved-release-paused.png)
+
+[샘플 안내와 두 버전 비교](src/game-samples/README.md)에서 실행 방법, 다른 화면, 실제 확인 범위를 볼 수 있습니다.
 
 ## 두 저장소의 역할
 

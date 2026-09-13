@@ -71,6 +71,6 @@
 
 원본에는 [MIT LICENSE](https://github.com/microsoft/Build26-LAB502-make-github-copilot-work-your-way-custom-tools-context-and-workflows/blob/763f9fec1caefd2d4660e0dd7e9308bc80aa41cd/LICENSE)와 [CC BY-SA 4.0 LICENSE-DOCS](https://github.com/microsoft/Build26-LAB502-make-github-copilot-work-your-way-custom-tools-context-and-workflows/blob/763f9fec1caefd2d4660e0dd7e9308bc80aa41cd/LICENSE-DOCS)가 있습니다. 개별 에셋의 권리 범위를 모두 확인한 것은 아닙니다.
 
-현재 초안은 원본의 아이디어와 구조를 참고한 새 설명이며, 원본 게임 코드·이미지·Plugin 파일·본문을 복사하거나 번역해 포함하지 않았습니다. 이후 실제 재사용이 생기면 파일별 출처와 변경 내용을 기록하고 해당 라이선스가 요구하는 고지를 유지합니다. 출처 링크만으로 라이선스 의무를 대신하지 않습니다.
+현재 안내서와 샘플은 원본의 아이디어와 구조를 참고한 새 설명·구현이며, 원본 게임 코드·이미지·Plugin 파일·본문을 복사하거나 번역해 포함하지 않았습니다. 저장소에 포함한 화면 이미지는 새 샘플의 실제 로컬 빌드를 촬영한 것입니다. 이후 실제 재사용이 생기면 파일별 출처와 변경 내용을 기록하고 해당 라이선스가 요구하는 고지를 유지합니다. 출처 링크만으로 라이선스 의무를 대신하지 않습니다.
 
 Microsoft 및 제3자의 로고·캐릭터·행사 QR 이미지는 기본 샘플에 사용하지 않습니다. 새 게임은 직접 그린 도형과 자체 스타일을 사용할 예정입니다.
