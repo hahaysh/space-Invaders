@@ -44,6 +44,7 @@ scripts는 dev: vite, build: vite build, preview: vite preview,
 test: node --test tests/*.test.js, test:e2e: playwright test로 설계한다.
 Node 테스트의 명시적 선택자로 e2e 자동 탐색을 피하고 Windows에서도 같은 명령을 쓴다.
 최초 npm install은 package.json 작성 뒤, lockfile 생성 후 재현 설치는 npm ci다.
+개발 의존성은 Node24 호환 안정 버전을 확인해 정확히 고정하며 latest를 안정판으로 가정하지 않는다.
 Playwright 의존성 설치 뒤에만 npx playwright install chromium을 실행한다.
 아직 어떤 명령도 실행하거나 의존성을 설치하지 마.
 

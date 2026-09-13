@@ -45,6 +45,8 @@ vite.config.js, package.json, package-lock.json, .gitignore와
 IMPLEMENTATION_PLAN.md의 M1 진행 상태만 변경해줘.
 
 Node24, vanilla ES modules/Canvas2D, Vite와 @playwright/test를 사용한다.
+호환되는 안정 버전을 확인해 정확한 버전으로 고정하고 선택 근거를 알려줘.
+npm의 latest 태그가 beta/rc 등 사전 배포판이면 그대로 채택하지 마.
 package.json부터 작성하고 devDependencies를 선언한 뒤 npm install을 실행해줘.
 package-lock.json을 생성·보존하고 이후 재현 설치에는 npm ci를 사용한다.
 scripts는 dev: vite, build: vite build, preview: vite preview,
@@ -71,6 +73,7 @@ diff와 실행 증거를 보여주고 M1은 참가자 확인 대기라고 보고
 
 설치·브라우저 다운로드 권한 요청이 보이면 요청 범위가 승인한 도구와 맞는지 확인합니다.
 `package-lock.json`이 있어야 이후 `npm ci`로 같은 의존성 구성을 설치할 수 있습니다.
+참고 샘플 리허설에서는 Vite `8.2.2`와 Playwright `1.63.0`을 사용했습니다. 당시 Vite의 latest가 beta를 가리켜 안정판을 별도 선택했습니다. 참가자도 태그 이름이 아닌 실제 버전과 Node 호환성을 확인합니다.
 
 ### 3-3. 실제 브라우저에서 확인하기
 
