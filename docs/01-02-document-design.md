@@ -2,9 +2,7 @@
 
 **1. 준비 · 개발 문서 정의**
 
-이전: `01-01-environment-setup.md` (작성 예정) · [전체 목차](00-overview.md) · 다음: `01-03-agent-instructions.md` (작성 예정)
-
-> **대표 실습 초안:** 이 문서의 설명 수준·프롬프트·점검 형식을 먼저 검토합니다. 아직 선행 환경 준비 모듈은 작성되지 않았습니다.
+[이전: 작업 환경 준비](01-01-environment-setup.md) · [전체 목차](00-overview.md) · [다음: 작업 지침 작성](01-03-agent-instructions.md)
 
 ## 1. 설명
 
@@ -183,4 +181,4 @@ AI의 자체 검토만으로 완료하지 않습니다. 참가자가 PRD와 TRD�
 
 ---
 
-이전: `01-01-environment-setup.md` (작성 예정) · [전체 목차](00-overview.md) · 다음: `01-03-agent-instructions.md` (작성 예정)
+[이전: 작업 환경 준비](01-01-environment-setup.md) · [전체 목차](00-overview.md) · [다음: 작업 지침 작성](01-03-agent-instructions.md)
