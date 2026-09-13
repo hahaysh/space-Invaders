@@ -143,6 +143,13 @@ ideation.md와 AGENTS.md는 책임 변화가 없다면 수정하지 마.
 참고: [app PR 관리](https://docs.github.com/en/copilot/how-tos/github-copilot-app/managing-issues-and-pull-requests),
 [Pages 워크플로](https://docs.github.com/en/pages/getting-started-with-github-pages/using-custom-workflows-with-github-pages).
 
+## 선택 확장으로 이어가기
+
+기본 과정은 여기서 끝납니다. 변경 사이클을 더 경험하려면 [08-01 난이도 선택 설계](08-01-difficulty-design.md)부터 진행합니다.
+08에서는 적 속도 설정을 추가하고, 이어지는 09에서는 목숨 3개와 재도전으로 종료 규칙을 바꿉니다.
+P 키 기능과 이전 기록을 유지하며 각 변경을 별도로 승인·검증·재배포합니다.
+기존 참고 샘플에는 이 두 확장이 없으며, 위 종료 프롬프트가 후속 구현을 자동 승인하는 것은 아닙니다.
+
 ---
 
 이전: [07-04 변경·회귀 검증](07-04-change-and-regression-testing.md) · [전체 목차로 돌아가기](00-overview.md)
