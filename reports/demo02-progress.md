@@ -11,7 +11,7 @@
 - demo01과 역사적 샘플은 수정하거나 시작 코드로 복사하지 않습니다. 게임 제목은 **우주 방어**이며 적의 공격은 추가하지 않습니다.
 - 도구 대행과 사람의 App UI 조작을 구분합니다. App 설정 수락, Skill 호출, 자동 지침 적용은 각각 실제 확인 근거가 있어야 합니다.
 
-**현재 상태:** 06-03까지 **14/20단계(70%)**입니다. 최초 공개와 기록 PR 한 번의 병합·후속 배포·공개 재확인까지 마쳤습니다. 다음은 새 이슈·App 세션에서 일시정지 설계입니다. App 설정 수락·Run UI는 아래와 같이 미확인입니다.
+**현재 상태:** 07-01까지 **15/20단계(75%)**입니다. 새 이슈·기능 브랜치에서 일시정지 설계를 원격에 반영했고, 07-02 구현·Skill 재사용·회귀·PR·재배포를 진행합니다. App 설정 수락·Run UI는 아래와 같이 미확인입니다.
 
 **[demo02 공개 게임 실행](https://hahaysh.github.io/space-Invaders-demo02/)** — 현재 최초 기본 게임이며 일시정지·난이도·목숨 확장은 아직 아닙니다.
 
@@ -35,8 +35,8 @@
 | 06-01 | Pages 배포 준비 | 완료 | [df372f2](https://github.com/hahaysh/space-Invaders-demo02/commit/df372f230298ef6518fd422287441aac8d4505fc), [설정 근거](https://github.com/hahaysh/space-Invaders-demo02/issues/4#issuecomment-5659123635); workflow 게시·main 브랜치만 허용 |
 | 06-02 | 배포 워크플로 | 완료 | [7a3abfa](https://github.com/hahaysh/space-Invaders-demo02/commit/7a3abfa1c9d85deb45a51cc24b936767bd6efc3a), [검사 근거](https://github.com/hahaysh/space-Invaders-demo02/issues/4#issuecomment-5659234160); 정책·문법·로컬 검사 |
 | 06-03 | PR과 첫 배포 | 완료 | [배포 PR](https://github.com/hahaysh/space-Invaders-demo02/pull/5), [기록 PR](https://github.com/hahaysh/space-Invaders-demo02/pull/6), [최종 확인](https://github.com/hahaysh/space-Invaders-demo02/issues/4#issuecomment-5659560168) |
-| 07-01 | 일시정지 요청과 설계 | 준비 중 | 최신 main에서 새 일시정지 이슈·App 세션 준비 |
-| 07-02 | 일시정지 구현과 재배포 | 대기 | - |
+| 07-01 | 일시정지 요청과 설계 | 완료 | [일시정지 이슈](https://github.com/hahaysh/space-Invaders-demo02/issues/7), [7300acc](https://github.com/hahaysh/space-Invaders-demo02/commit/7300acc21ff09a2d6b11fac46b96f06ab5572e95), [설계 근거](https://github.com/hahaysh/space-Invaders-demo02/issues/7#issuecomment-5659623489) |
+| 07-02 | 일시정지 구현과 재배포 | 진행 중 | 설계 검토 후 구현·실제 Skill 호출·회귀·PR·공개 확인 |
 | 08-01 | 난이도 선택 설계 | 대기 | - |
 | 08-02 | 난이도 구현과 재배포 | 대기 | - |
 | 09-01 | 목숨 설계 | 대기 | - |
@@ -75,3 +75,5 @@
 그 뒤 main `8898387`의 Actions `34809039826`에서 빌드·업로드·배포가 성공했습니다. 실제 공개 사이트의 HTML·JS·CSS·favicon 네 파일이 성공 아티팩트와 일치했고, 일반 시간의 실제 키·DOM·Canvas 관찰로 시작·이동·발사·점수·자연 승패·재시작·종료 동결을 확인했습니다. 읽기 전용 공개 검사에서 래스터 면적 기대 오류가 발생한 사실을 보존하고 적 24개의 연결 영역 검사로 확인했으며 제품 코드는 바꾸지 않았습니다. 조정자도 GitHub의 성공 상태·배포 SHA와 공개 페이지 응답을 재확인했습니다. 최신 main에서 새 기록 세션을 열어 README·결과의 기록 PR 한 번을 진행하며 기존 작성자는 중단하고 소유 서버·탭을 종료했습니다.
 
 06-03 마무리에서는 기록 PR 하나를 정상 병합해 README의 실제 URL과 결과 요약을 원격 main `bda40293c959bb6af8c01147b105ebd17f2930ab`에 반영했습니다. [후속 Actions 34810372882](https://github.com/hahaysh/space-Invaders-demo02/actions/runs/34810372882)의 빌드·업로드·배포가 성공했고 최초·현재 아티팩트 네 파일과 공개 HTTP 200 응답의 바이트 일치를 확인했습니다. 일반 시간 키·DOM·Canvas로 기본 시작을 다시 확인한 뒤 검증·배포 이슈를 완료 종료했습니다. 추가 기록 PR을 만들지 않았으며 깨끗한 작업 상태와 소유 서버·탭 종료를 확인했습니다. 사람 UI와 App 신뢰 수락·Run·자동 적용의 미확인은 유지합니다.
+
+07-01에서는 일시정지 이슈에서 최신 main 기반 새 App 세션·기능 브랜치 `hahaysh-space-defense-pause`를 준비했습니다. 코드 변경 없이 P 키·paused 상태·시간과 발사 대기 동결·재개 시 delta 초기화 및 기존 규칙 보존을 설계하고 원격 `7300acc`에 반영했습니다. 작업 상태는 깨끗하며 기존 공개 URL과 이전 결과를 보존합니다. 새 세션에서 `game-check`가 발견됐지만 이 설계 단계에서는 아직 호출하지 않았고 구현 단계에서 실제 재사용을 확인합니다.
