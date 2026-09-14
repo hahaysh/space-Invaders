@@ -4,7 +4,7 @@
 GitHub Copilot **App**에서 계획을 검토하고 실행·공개를 승인하며 Space Invaders 스타일의 **우주 방어**를 만듭니다.
 CLI·VS Code 사용법이나 전문 게임 엔진 설계가 아닌, 초보자를 위한 짧은 개발 사이클입니다.
 
-## 현재 상태: v2 안내서 작성, 새 리허설 대기
+## 현재 상태: v2 안내서 작성, demo02 리허설 진행
 
 **전체 안내 1개 + 실습 20개 = 문서 21개**입니다.
 기본 과정 01~07은 16개, 선택 과정 08~09는 4개입니다.
@@ -12,7 +12,8 @@ CLI·VS Code 사용법이나 전문 게임 엔진 설계가 아닌, 초보자를
 
 | 자료 | 확인 상태 |
 |---|---|
-| [v2 전체 안내와 20개 목차](docs/00-전체-실습-안내.md) | 작성 완료, demo02 리허설 **대기 중** |
+| [v2 전체 안내와 20개 목차](docs/00-전체-실습-안내.md) | 작성 완료, demo02 리허설 **진행 중** |
+| [demo02 단계별 진행 기록](reports/demo02-progress.md) | 20개 단계의 상태와 커밋·이슈·PR·배포 근거 |
 | [개발 문서와 작업 규칙](docs/01-02-개발-문서와-작업-규칙.md) | 역할 설계 후 최소 AGENTS 생성 |
 | [App 설정](docs/04-03-App-설정과-README.md)·[game-check Skill](docs/05-01-게임-검증과-Skill.md) | 필수 `.github` 커스터마이징 두 개, App 실제 동작은 새 리허설 대상 |
 | [역사적 최초 샘플](src/game-samples/first-release/README.md) | Node 35·Chromium 10, 빌드·하위 경로 검사 통과 |
@@ -24,7 +25,6 @@ demo01의 최종 main은 `97cd3e1fca2face6bf84c034412ae31a60fa6056`이며,
 [Actions 34793874053](https://github.com/hahaysh/space-Invaders-demo01/actions/runs/34793874053)에서
 Node 33·Chromium 28·빌드·배포가 성공했습니다.
 자율 API 실행과 직접 fast-forward 병합 예외를 사용했으므로 사람의 전체 App 경로 검증은 아닙니다.
-긴 테스트 정지의 호스트 원인은 미확정이며, 철회한 외부 스크립트 의심은 실제 버그가 아니었습니다.
 demo01과 두 샘플의 코드·제목은 이번 문서 개편에서 바꾸지 않습니다.
 
 ## 참고 화면
