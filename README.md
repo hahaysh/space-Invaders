@@ -4,22 +4,32 @@
 GitHub Copilot **App**에서 계획을 검토하고 실행·공개를 승인하며 Space Invaders 스타일의 **우주 방어**를 만듭니다.
 CLI·VS Code 사용법이나 전문 게임 엔진 설계가 아닌, 초보자를 위한 짧은 개발 사이클입니다.
 
-## 현재 상태: v2 안내서 작성, demo02 리허설 진행
+## 현재 상태: v2 안내서와 demo02 실행 리허설 완료
 
 **전체 안내 1개 + 실습 20개 = 문서 21개**입니다.
 기본 과정 01~07은 16개, 선택 과정 08~09는 4개입니다.
-이번 개편의 실행 검증과 이전 실습의 성공을 구분합니다.
+**[완성된 우주 방어 플레이](https://hahaysh.github.io/space-Invaders-demo02/)** · [단계별 실행 기록](reports/demo02-progress.md)
+
+20개 단계의 위임 실행·실제 PR·검사·공개 배포를 마쳤습니다.
+사람의 App UI 조작까지 검증한 것은 아니며 아래 경계를 구분합니다.
 
 | 자료 | 확인 상태 |
 |---|---|
-| [v2 전체 안내와 20개 목차](docs/00-전체-실습-안내.md) | 작성 완료, demo02 리허설 **진행 중** |
+| [v2 전체 안내와 20개 목차](docs/00-전체-실습-안내.md) | demo02에서 20단계 위임 실행·공개 배포 완료 |
 | [demo02 단계별 진행 기록](reports/demo02-progress.md) | 20개 단계의 상태와 커밋·이슈·PR·배포 근거 |
 | [개발 문서와 작업 규칙](docs/01-02-개발-문서와-작업-규칙.md) | 역할 설계 후 최소 AGENTS 생성 |
-| [App 설정](docs/04-03-App-설정과-README.md)·[game-check Skill](docs/05-01-게임-검증과-Skill.md) | 필수 `.github` 커스터마이징 두 개, App 실제 동작은 새 리허설 대상 |
+| [App 설정](docs/04-03-App-설정과-README.md) | 파일·명령 확인, App 신뢰 수락·Run UI는 도구 제한으로 미확인 |
+| [game-check Skill](docs/05-01-게임-검증과-Skill.md) | 새 기능 세션에서 실제 로드·호출 후 개선 과정에서 재사용 |
+| [demo02 최종 배포](https://github.com/hahaysh/space-Invaders-demo02/actions/runs/34821940747) | Node 34·Chromium 17·빌드·배포 성공, 공개 목숨·재도전 확인 |
 | [역사적 최초 샘플](src/game-samples/first-release/README.md) | Node 35·Chromium 10, 빌드·하위 경로 검사 통과 |
 | [역사적 일시정지 샘플](src/game-samples/improved-release/README.md) | Node 42·Chromium 13, 빌드·하위 경로·정지/재개 검사 통과 |
 | [이전 demo01 공개 게임](https://hahaysh.github.io/space-Invaders-demo01/) | 이전 **25개** 실습 리허설 완료, 난이도·목숨 포함 |
-| 사람의 App·PR UI, AGENTS 자동 로딩 | 미검증; API 실행·명시적 읽기로 대체 입증하지 않음 |
+| 사람의 App·PR UI, AGENTS·Skill 무요청 자동 적용 | 미검증; 도구 실행·명시적 호출로 대체 입증하지 않음 |
+
+demo02는 이슈별 App 세션·기능 브랜치에서 작업하고 PR로 정상 병합했습니다.
+최종 main은 `03b5e6237166e7cd9b8a5b8a872e79a783462c3c`이며,
+[최종 20단계 표와 공개 근거](https://github.com/hahaysh/space-Invaders-demo02/issues/11#issuecomment-5661180646)를 원격 이슈에 보존했습니다.
+참가자 저장소의 구현 계획 마지막 행도 이 근거를 참조하며 기록만을 위한 재배포를 반복하지 않습니다.
 
 demo01의 최종 main은 `97cd3e1fca2face6bf84c034412ae31a60fa6056`이며,
 [Actions 34793874053](https://github.com/hahaysh/space-Invaders-demo01/actions/runs/34793874053)에서

@@ -11,9 +11,9 @@
 - demo01과 역사적 샘플은 수정하거나 시작 코드로 복사하지 않습니다. 게임 제목은 **우주 방어**이며 적의 공격은 추가하지 않습니다.
 - 도구 대행과 사람의 App UI 조작을 구분합니다. App 설정 수락, Skill 호출, 자동 지침 적용은 각각 실제 확인 근거가 있어야 합니다.
 
-**현재 상태:** 09-01까지 **19/20단계(95%)**입니다. 목숨 구현·실제 Skill·로컬 회귀·PR CI를 통과하고 정상 병합했습니다. 정확한 main 배포와 최종 공개 게임 확인·원격 기록·정리를 진행합니다. App 설정 수락·Run UI는 아래와 같이 미확인입니다.
+**현재 상태:** 2026-09-14 17:32 KST 기준 **20/20단계의 위임 실행 리허설 완료**입니다. 최종 PR·배포·공개 게임·원격 진행표·소유 자원 정리를 확인했습니다. 사람의 직접 실습과 App 신뢰 수락·Run UI까지 모두 확인했다는 뜻은 아닙니다.
 
-**[demo02 공개 게임 실행](https://hahaysh.github.io/space-Invaders-demo02/)** — 일시정지·재개와 세 난이도 선택을 공개 확인했습니다. 목숨은 PR 병합 후 배포 확인 중입니다.
+**[demo02 공개 게임 실행](https://hahaysh.github.io/space-Invaders-demo02/)** — 일시정지·재개, 세 난이도, 목숨 3개·재도전을 포함합니다. 적의 공격은 추가하지 않았습니다.
 
 ## 단계별 진행
 
@@ -40,7 +40,7 @@
 | 08-01 | 난이도 선택 설계 | 완료 | [난이도 이슈](https://github.com/hahaysh/space-Invaders-demo02/issues/9), [9cdd019](https://github.com/hahaysh/space-Invaders-demo02/commit/9cdd019c71efd11e7441979b700340a518bd0f23), [설계 근거](https://github.com/hahaysh/space-Invaders-demo02/issues/9#issuecomment-5659950510) |
 | 08-02 | 난이도 구현과 재배포 | 완료 | [난이도 PR](https://github.com/hahaysh/space-Invaders-demo02/pull/10), [main 배포](https://github.com/hahaysh/space-Invaders-demo02/actions/runs/34815699225), [공개 완료 근거](https://github.com/hahaysh/space-Invaders-demo02/issues/9#issuecomment-5660296207) |
 | 09-01 | 목숨 설계 | 완료 | [목숨 이슈](https://github.com/hahaysh/space-Invaders-demo02/issues/11), [df03c0b](https://github.com/hahaysh/space-Invaders-demo02/commit/df03c0bc0831ffdf62b00869e0915a49845ba6b5), [설계 근거](https://github.com/hahaysh/space-Invaders-demo02/issues/11#issuecomment-5660460511) |
-| 09-02 | 목숨 구현과 재배포 | PR 병합·최종 공개 확인 중 | [목숨 PR](https://github.com/hahaysh/space-Invaders-demo02/pull/12), [PR CI](https://github.com/hahaysh/space-Invaders-demo02/actions/runs/34821389173), [구현·검사 근거](https://github.com/hahaysh/space-Invaders-demo02/issues/11#issuecomment-5661027700) |
+| 09-02 | 목숨 구현과 재배포 | 완료 | [목숨 PR](https://github.com/hahaysh/space-Invaders-demo02/pull/12), [최종 배포](https://github.com/hahaysh/space-Invaders-demo02/actions/runs/34821940747), [공개·20단계 최종 근거](https://github.com/hahaysh/space-Invaders-demo02/issues/11#issuecomment-5661180646) |
 
 ## 착수 시 확인
 
@@ -95,3 +95,27 @@
 이후 초기 DOM·시간 제어 경합과 검사 실행 시간 이력을 보존하며 보완했고, 같은 코드에서 Node 34개·빌드·전체 Chromium 17개가 통과했습니다. 전체 브라우저 회귀는 약 3분이었으며, 재도전 검사는 고정 90초를 소비하는 대신 제한된 범위에서 시간을 진행하고 실제 DOM의 목표 상태에 도달하면 멈추도록 조정했습니다. 게임 규칙이나 확인할 경계는 유지합니다. 루트·저장소 하위 경로의 일반 시간 preview와 자산 확인을 진행하며, 원격 PR CI·배포 성공은 아직 확인 전입니다.
 
 이어 실제 Skill 호출·최종 Node 34개·Chromium 17개·빌드와 루트·하위 경로 재도전을 확인했습니다. PR CI `34821389173`의 빌드는 2분 55초에 성공했고 업로드·배포는 건너뛰었습니다. 리뷰 없음·병합 가능 상태와 CI를 다시 확인한 뒤 PR을 main `03b5e6237166e7cd9b8a5b8a872e79a783462c3c`로 정상 병합했습니다. 최종 완료 전에는 해당 main 배포와 실제 공개 목숨 3→2→1→0·재도전·초기화·일시정지·난이도, 이슈의 최종 단계표·근거와 소유 자원 정리를 확인합니다.
+
+## 최종 완료와 확인 범위
+
+최종 main `03b5e6237166e7cd9b8a5b8a872e79a783462c3c`의 Actions `34821940747`에서 Node 34개·Chromium 17개·빌드·업로드·배포가 성공했습니다. 배포 ID는 `6433146116`입니다. 조정자도 성공 상태·정확한 SHA·원격 main·최종 이슈 댓글의 20개 완료 행과 공개 페이지 응답을 다시 확인했습니다.
+
+공개 검사는 실제 키·버튼·DOM·Canvas를 사용하는 브라우저 자동화로 122.583초 동안 일반 시간에 실행했습니다. 제어 clock이나 모델 주입 없이 목숨 3→2→1→0, 재도전 점수 20/10과 화면 동결, 난이도 잠금, Enter·버튼 다음 시도, 목숨·현재 난이도 보존과 점수 초기화, 눌린 입력 무시, 최종 패배 뒤 쉬움·3목숨 새 게임, P와 새로고침을 확인했습니다. 정밀 시계·충돌·쿨다운 경계는 공개 화면 관찰이 아니라 모델·E2E 근거와 구분합니다.
+
+정확한 성공 run의 HTML·JS·CSS·favicon 네 파일과 공개 HTTP 200 응답의 MIME·바이트가 일치했습니다. 공개 검사 assertion·pageerror·console error는 없었지만 Canvas 픽셀 읽기의 성능 안내 warning 한 건을 기록했습니다. CI 서버 준비 첫 연결 실패도 재시도 뒤 정상 응답한 사실을 보존했습니다.
+
+| 확인 범위 | 최종 판정 |
+|---|---|
+| 문서·게임·검사·이슈·기능 브랜치·PR·실제 Pages | 위임 범위 실행 완료 |
+| `game-check` Skill | 새 세션 실제 로드·호출 및 개선 단계 재사용 확인 |
+| App 설정 파일과 실제 명령 | 확인 |
+| App 설정 review/accept·Run UI | 안전 정책에 따른 도구 제한으로 미확인, 우회 없음 |
+| 사람 직접 플레이·사람 App/PR UI | 미확인; 도구 대행과 구분 |
+| AGENTS·Skill 무요청 자동 적용 | 미확인; 명시적 참조·호출로 대체 입증하지 않음 |
+| 다른 브라우저·기기 전수 확인 | 미수행 |
+
+최종 20개 완료 표와 실패·복구·정리 근거는 [목숨 이슈 최종 댓글](https://github.com/hahaysh/space-Invaders-demo02/issues/11#issuecomment-5661180646)에 있습니다. 참가자 `IMPLEMENTATION_PLAN.md`는 19개 완료와 마지막 행의 해당 댓글 참조로 구성되어 있으며, 그 숫자만 바꾸는 추가 기록 PR 없이 원격 댓글로 최종 완료를 확정했습니다.
+
+문서 PR 한 개, 기본 게임·검증 배포·일시정지·난이도·목숨 이슈와 각 PR, 최초 배포 기록 PR 한 개를 사용했습니다. 모든 PR은 정상 병합했으며 강제 푸시·reset·직접 main 반영은 하지 않았습니다. 최종 기능 HEAD `cdb091cc95824a5ebce1f5d1f852027b2ab0bacd`와 main의 파일 차이는 없고 작업 상태는 깨끗합니다. 소유 서버·브라우저를 종료하고 5173/4173 수신자 0을 확인했습니다. demo01은 변경하지 않았으며 역사적 샘플 코드를 복사하거나 수정하지 않았습니다.
+
+사용자 착수 요청 12:01부터 최종 실행 보고 17:32까지 약 5시간 31분이 관측됐습니다. 이 시간에는 안내서 개편, 에이전트 작업·대기, 실제 실패 복구와 반복 검사가 포함됩니다. 초보 참가자의 수업 시간으로 확정한 값은 아니며, 사람 UI를 포함한 수업 시간은 별도 파일럿에서 측정해야 합니다.

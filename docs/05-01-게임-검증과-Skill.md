@@ -48,7 +48,7 @@ frontmatter name은 game-check, description은 언제 어떤 게임 검증에 �
 App을 **Interactive**로 바꿉니다.
 
 ```text
-계획을 승인해. TEST_PLAN.md와 game-check/SKILL.md를 작성해 줘.
+계획을 승인해. TEST_PLAN.md와 .github/skills/game-check/SKILL.md를 작성해 줘.
 TEST_RESULTS.md에는 아직 실행하지 않은 항목을 통과로 쓰지 마.
 게임 규칙·실제 키 입력·빌드/하위 경로 검사를 구분하고 인식 확인 전 멈춰 줘.
 ```
@@ -60,6 +60,9 @@ App의 **Customize / Skills**에서 프로젝트 Skill의 표시·사용 가능 
 필요하면 작업을 커밋해 보존하고 **같은 기능 브랜치와 파일을 가진 세션**을 다시 엽니다.
 이때 최신 main 새 분기로 이동해 아직 미병합된 Skill을 잃지 않도록 base·현재 파일을 확인합니다.
 CLI 전용 `/skills reload`를 App의 확인된 UI 명령처럼 입력하지 않습니다.
+
+demo02에서도 기존 세션의 `not found`를 보존한 뒤 같은 기능 브랜치의 새 검사 세션에서 실제 호출을 확인했습니다.
+새 파일을 썼다는 이유만으로 현재 세션에 즉시 반영됐다고 가정하지 않습니다.
 
 인식됐다면 다음 짧은 요청으로 **실제 Skill 호출**을 확인합니다.
 
