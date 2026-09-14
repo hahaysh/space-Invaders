@@ -11,9 +11,9 @@
 - demo01과 역사적 샘플은 수정하거나 시작 코드로 복사하지 않습니다. 게임 제목은 **우주 방어**이며 적의 공격은 추가하지 않습니다.
 - 도구 대행과 사람의 App UI 조작을 구분합니다. App 설정 수락, Skill 호출, 자동 지침 적용은 각각 실제 확인 근거가 있어야 합니다.
 
-**현재 상태:** 08-01까지 **17/20단계(85%)**입니다. 새 난이도 이슈·기능 브랜치에서 설계 문서를 반영했고, 08-02 구현·Skill 재사용·회귀·PR·공개 확인을 진행합니다. App 설정 수락·Run UI는 아래와 같이 미확인입니다.
+**현재 상태:** 08-01까지 **17/20단계(85%)**입니다. 08-02 난이도 구현·Skill 재사용·검사·PR 정상 병합을 마쳤고, main 배포와 실제 공개 확인을 진행합니다. App 설정 수락·Run UI는 아래와 같이 미확인입니다.
 
-**[demo02 공개 게임 실행](https://hahaysh.github.io/space-Invaders-demo02/)** — 일시정지·재개가 반영됐습니다. 난이도·목숨은 아직 구현 전입니다.
+**[demo02 공개 게임 실행](https://hahaysh.github.io/space-Invaders-demo02/)** — 일시정지·재개는 공개 확인을 마쳤습니다. 난이도는 배포 확인 중이며 목숨은 아직 구현 전입니다.
 
 ## 단계별 진행
 
@@ -38,7 +38,7 @@
 | 07-01 | 일시정지 요청과 설계 | 완료 | [일시정지 이슈](https://github.com/hahaysh/space-Invaders-demo02/issues/7), [7300acc](https://github.com/hahaysh/space-Invaders-demo02/commit/7300acc21ff09a2d6b11fac46b96f06ab5572e95), [설계 근거](https://github.com/hahaysh/space-Invaders-demo02/issues/7#issuecomment-5659623489) |
 | 07-02 | 일시정지 구현과 재배포 | 완료 | [개선 PR](https://github.com/hahaysh/space-Invaders-demo02/pull/8), [main 배포](https://github.com/hahaysh/space-Invaders-demo02/actions/runs/34812636787), [공개 완료 근거](https://github.com/hahaysh/space-Invaders-demo02/issues/7#issuecomment-5659849823) |
 | 08-01 | 난이도 선택 설계 | 완료 | [난이도 이슈](https://github.com/hahaysh/space-Invaders-demo02/issues/9), [9cdd019](https://github.com/hahaysh/space-Invaders-demo02/commit/9cdd019c71efd11e7441979b700340a518bd0f23), [설계 근거](https://github.com/hahaysh/space-Invaders-demo02/issues/9#issuecomment-5659950510) |
-| 08-02 | 난이도 구현과 재배포 | 진행 중 | 설계 검토 후 구현·실제 Skill 호출·회귀·PR·공개 확인 |
+| 08-02 | 난이도 구현과 재배포 | PR 병합·공개 확인 중 | [난이도 PR](https://github.com/hahaysh/space-Invaders-demo02/pull/10), [PR CI](https://github.com/hahaysh/space-Invaders-demo02/actions/runs/34815166265), [구현·검사 근거](https://github.com/hahaysh/space-Invaders-demo02/issues/9#issuecomment-5660172636) |
 | 09-01 | 목숨 설계 | 대기 | - |
 | 09-02 | 목숨 구현과 재배포 | 대기 | - |
 
@@ -83,3 +83,5 @@
 이후 해당 main의 Actions `34812636787`에서 빌드·업로드·배포가 성공했습니다. 성공 아티팩트 네 파일과 공개 HTTP 200 응답의 바이트 일치를 확인하고, 일반 시간 실제 P 입력·반복 키 무시·1200ms 정지 중 Canvas와 점수 유지·재개 입력 정리·좌우 이동·발사·재정지·초기화를 확인했습니다. 발사 대기의 정밀한 시간 경계는 화면 관찰로 확대하지 않고 Node 23개·CI 브라우저 11개 근거와 구분했습니다. 공개 확인 댓글을 남긴 뒤 일시정지 이슈를 완료 종료했으며 추가 기록 PR 없이 깨끗한 작업 상태와 소유 서버·탭 종료를 확인했습니다.
 
 08-01에서는 난이도 이슈의 새 App 세션과 `hahaysh-space-defense-difficulty` 기능 브랜치에서 설계 문서 다섯 개만 변경했습니다. 적 이동 속도 32/64/96, 선택 예정값과 이번 게임 설정의 분리, 상태별 선택 잠금, 기본 select의 키보드 입력 보호, 잘못된 값의 명시적 오류와 초기 보통 난이도, 기존 일시정지 유지를 설계했습니다. 원격 `9cdd019`와 작업 HEAD의 일치 및 깨끗한 상태를 확인했습니다. 난이도 구현·실제 Skill 호출·회귀·PR·공개 확인은 다음 단계에서 수행합니다.
+
+08-02에서는 난이도를 구현하고 Skill을 사용해 Node 31개·Chromium 16개·빌드와 기본 선택 UI·잠금·일시정지를 확인했습니다. 초기 select 동기화 결함과 메뉴 재열기 검사 실패를 수정하고 이전 실패 기록을 보존했습니다. PR CI `34815166265` 성공, 리뷰 없음·병합 가능 상태를 다시 확인한 뒤 PR을 main `97766d9e3dfe4542185a4c5a588cd9d46fde18ac`로 정상 병합했습니다. 소유 서버·탭 종료와 깨끗한 작업 상태를 확인했으며, main 배포와 실제 공개 선택·P·잠금 동작 확인 전에는 단계 완료로 집계하지 않습니다.
