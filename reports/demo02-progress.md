@@ -11,7 +11,7 @@
 - demo01과 역사적 샘플은 수정하거나 시작 코드로 복사하지 않습니다. 게임 제목은 **우주 방어**이며 적의 공격은 추가하지 않습니다.
 - 도구 대행과 사람의 App UI 조작을 구분합니다. App 설정 수락, Skill 호출, 자동 지침 적용은 각각 실제 확인 근거가 있어야 합니다.
 
-**현재 상태:** 06-02까지 **13/20단계(65%)**입니다. 배포 워크플로 작성과 로컬 검사를 마쳤고, 06-03 PR·원격 CI·첫 공개 배포를 진행합니다. App 설정 수락·Run UI는 아래와 같이 미확인입니다. 아직 원격 Actions 성공이나 실제 공개 배포를 확인한 단계는 아닙니다.
+**현재 상태:** 06-02까지 **13/20단계(65%)**입니다. 06-03의 첫 PR CI에서 브라우저 검사 한 건이 실패해 병합하지 않고 재현·수정 중입니다. App 설정 수락·Run UI는 아래와 같이 미확인입니다. 아직 실제 공개 배포를 확인한 단계는 아닙니다.
 
 ## 단계별 진행
 
@@ -32,7 +32,7 @@
 | 05-02 | 결함 수정과 회귀 검증 | 완료 | [f79cdef](https://github.com/hahaysh/space-Invaders-demo02/commit/f79cdef0bc5dfdbf3edd49837fda36efe7b933f7), [결과 분류](https://github.com/hahaysh/space-Invaders-demo02/issues/4#issuecomment-5659079469); 제품 수정 필요 없음 |
 | 06-01 | Pages 배포 준비 | 완료 | [df372f2](https://github.com/hahaysh/space-Invaders-demo02/commit/df372f230298ef6518fd422287441aac8d4505fc), [설정 근거](https://github.com/hahaysh/space-Invaders-demo02/issues/4#issuecomment-5659123635); workflow 게시·main 브랜치만 허용 |
 | 06-02 | 배포 워크플로 | 완료 | [7a3abfa](https://github.com/hahaysh/space-Invaders-demo02/commit/7a3abfa1c9d85deb45a51cc24b936767bd6efc3a), [검사 근거](https://github.com/hahaysh/space-Invaders-demo02/issues/4#issuecomment-5659234160); 정책·문법·로컬 검사 |
-| 06-03 | PR과 첫 배포 | 진행 중 | PR 생성·실제 CI 검토 후 정상 병합·공개 확인·기록 PR 한 번 |
+| 06-03 | PR과 첫 배포 | CI 실패 복구 중 | [배포 PR](https://github.com/hahaysh/space-Invaders-demo02/pull/5), [첫 CI 실패](https://github.com/hahaysh/space-Invaders-demo02/actions/runs/34808118561); 병합·배포하지 않음 |
 | 07-01 | 일시정지 요청과 설계 | 대기 | - |
 | 07-02 | 일시정지 구현과 재배포 | 대기 | - |
 | 08-01 | 난이도 선택 설계 | 대기 | - |
@@ -65,3 +65,5 @@
 06-01에서는 demo02의 Public·ADMIN 권한과 공개될 추적 파일 범위를 확인하고 Pages의 `build_type=workflow`를 설정했습니다. `github-pages` 환경은 기존에 없었으며 `main` 브랜치 한 개만 허용하는 정책을 만들고 다시 조회했습니다. 기존 승인자나 대기 시간을 삭제하지 않았습니다. 설정 기록은 원격 `df372f2`에 보존했고 작업 상태는 깨끗합니다. 이 시점에는 워크플로와 배포가 없으므로 Pages URL은 설정값일 뿐 공개 성공의 근거가 아닙니다. 사람의 설정 UI 조작은 도구 대행과 구분합니다.
 
 06-02에서는 공식 Action의 release·tag를 실제 조회해 전체 SHA를 고정한 Pages 워크플로를 작성했습니다. 이벤트 여덟 경로의 정책, actionlint와 Git Bash 문법, Node 19개·Chromium 8개·빌드를 확인했습니다. PR은 검사만 수행하고 main만 아티팩트 업로드·배포하도록 구분했으며 최소 권한·배포 직렬화·main 전용 환경을 유지했습니다. 원격 기록 `7a3abfa`, 깨끗한 작업 상태와 소유 서버 종료를 확인했습니다. 이 단계에서 원격 Actions는 아직 실행되지 않았으므로 로컬 정책 검사로 원격 CI 성공을 대신하지 않습니다.
+
+06-03의 첫 PR CI에서는 Node 검사가 통과했지만 Chromium 검사 8개 중 1개가 실패했습니다. 반복 패배·재시작 뒤 100ms 이동 관찰에서 Canvas 최소 x의 기대 상한 416에 실제 417이 관찰됐습니다. 빌드·업로드·배포는 건너뛰었고 PR은 병합하지 않았습니다. [실패 기록](https://github.com/hahaysh/space-Invaders-demo02/issues/4#issuecomment-5659265856)을 보존하고 실제 프레임 시간과 이동량을 대조해 재현·최소 수정·회귀·재CI를 진행합니다. 임의로 상한을 늘리거나 게임 속도를 바꾸지 않으며, 이 시점에는 해결 완료나 원인을 확정하지 않습니다. 권한·배포 환경 보호 문제로 보고된 실패는 아닙니다.
