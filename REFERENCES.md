@@ -72,7 +72,8 @@
 | 역사적 first-release | Node 35·Chromium 10, 빌드·하위 경로 | 로컬 샘플, 실제 원격 배포의 근거가 아님 |
 | 역사적 improved-release | Node 42·Chromium 13, 빌드·하위 경로·P | 두 샘플에는 난이도·목숨 없음 |
 | 이전 demo01 | 전체 25개 실습, 난이도·목숨, 공개 게임 | 자율 API 실행·직접 fast-forward 병합 예외 |
-| 현재 v2 / demo02 | 20단계 위임 실행·이슈·PR·공개 배포, Node 34·Chromium 17 | App 설정 신뢰 수락·Run UI와 사람 직접 조작은 미확인 |
+| v2 / demo02 실행 시점 | 20단계 위임 실행·이슈·PR·공개 배포, Node 34·Chromium 17 | App 설정 신뢰 수락·Run UI와 사람 직접 조작은 미확인 |
+| 이후 시각 보완 | 정적 카드/기체 미리보기와 고정 CC0 이미지·해시·라이선스 확인 | 보완 시나리오의 전체 게임·공개 배포 리허설은 미수행 |
 
 demo02의 고정 근거:
 
@@ -90,6 +91,7 @@ demo01의 고정 근거:
 - 이전 고정 안내서: [`c545b103`](https://github.com/hahaysh/space-Invaders/tree/c545b103/docs), **역사적 기준**이지 현재 v2 소스가 아님
 
 위 이력은 보존하며 demo01이나 샘플 코드·테스트·역사적 제목을 v2에 맞춰 재작성하지 않습니다.
+demo02도 이후 카드·기체 보완을 위해 직접 수정하지 않았습니다. 과거 실행 결과는 새 외형의 검증 근거가 아닙니다.
 사람의 빈 저장소 App 시작·전체 App/PR UI 승인 경로와 AGENTS 자동 로딩은 미검증입니다.
 명시적으로 AGENTS를 읽게 한 실행을 자동 적용의 증거로 제시하지 않습니다.
 App 설정의 파일·명령은 확인했지만 신뢰 수락·Run UI 확인 도구가 안전 정책으로 거부되어 우회하지 않았습니다.
@@ -107,6 +109,11 @@ v2에서는 문서 PR → 기본 게임 PR → 검증·배포 PR을 구분하고
 
 원본에는 [MIT LICENSE](https://github.com/microsoft/Build26-LAB502-make-github-copilot-work-your-way-custom-tools-context-and-workflows/blob/763f9fec1caefd2d4660e0dd7e9308bc80aa41cd/LICENSE)와 [CC BY-SA 4.0 LICENSE-DOCS](https://github.com/microsoft/Build26-LAB502-make-github-copilot-work-your-way-custom-tools-context-and-workflows/blob/763f9fec1caefd2d4660e0dd7e9308bc80aa41cd/LICENSE-DOCS)가 있습니다. 개별 에셋의 권리 범위를 모두 확인한 것은 아닙니다.
 
-현재 안내서와 샘플은 원본의 아이디어와 구조를 참고한 새 설명·구현이며, 원본 게임 코드·이미지·Plugin 파일·본문을 복사하거나 번역해 포함하지 않았습니다. 저장소에 포함한 화면 이미지는 새 샘플의 실제 로컬 빌드를 촬영한 것입니다. 이후 실제 재사용이 생기면 파일별 출처와 변경 내용을 기록하고 해당 라이선스가 요구하는 고지를 유지합니다. 출처 링크만으로 라이선스 의무를 대신하지 않습니다.
+현재 안내서와 샘플은 원본의 아이디어와 구조를 참고한 새 설명·구현이며, 원본 게임 코드·이미지·Plugin 파일·본문을 복사하거나 번역해 포함하지 않았습니다. 기존 샘플 화면은 실제 로컬 빌드 캡처이고, 새 `docs/assets/hud-cards.svg`는 직접 작성한 구성 예시이지 실행 증거가 아닙니다. 실제 재사용 시 파일별 출처와 변경 내용을 기록하고 해당 라이선스가 요구하는 고지를 유지합니다. 출처 링크만으로 라이선스 의무를 대신하지 않습니다.
 
-Microsoft 및 제3자의 로고·캐릭터·행사 QR 이미지는 기본 샘플에 사용하지 않습니다. 참가자의 우주 방어도 직접 그린 도형과 자체 스타일을 사용합니다.
+Microsoft 및 제3자의 로고·캐릭터·행사 QR 이미지는 기본 샘플에 사용하지 않습니다.
+새 참가자 게임은 [화면과 에셋 기준](docs/화면과-에셋-기준.md)의 **Kenney Space Shooter (Redux)** PNG 두 개를 사용합니다.
+제작자의 [공식 CC0 안내](https://kenney.nl/support), 미러에 포함된 [팩 라이선스](https://github.com/mhmd-azeez/extism-space-commander/blob/b5ea6c01d219da1d2fc73c088dc86e3ab9e961c2/assets/license.txt), [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/)을 확인했습니다.
+미러는 공식 배포처가 아니며 파일·라이선스를 전체 commit SHA와 SHA-256으로 고정합니다. 접근 가능한 공식 팩 전용 페이지와 전체 권리 이전 이력까지 검증한 것은 아닙니다.
+PNG와 라이선스 원문을 참가자 저장소에 보존하고 README에 출처를 남깁니다. 이 안내 저장소에는 해당 PNG나 외부 게임 코드를 복사하지 않습니다.
+라이선스 허용은 Microsoft·Kenney의 보증이나 제휴를 뜻하지 않으며, 출처가 다른 임의 이미지로 교체하지 않습니다.

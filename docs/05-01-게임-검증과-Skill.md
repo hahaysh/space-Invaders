@@ -35,6 +35,7 @@ Prompt file의 IDE 사용법을 검증 없이 App 지원으로 가정하지 않�
 ```text
 PRD·TRD·기본 게임 이슈·실제 package scripts와 기존 테스트를 읽어 줘.
 전체 필수 요구사항에 자동/수동 확인 경로가 있는 TEST_PLAN.md를 제안해 줘.
+카드 값/정렬·기체 구별/비율·로딩 지연/실패·로컬 자산/하위 경로도 검증에 포함해 줘.
 TEST_RESULTS.md는 실제 명령·환경·결과·미확인만 짧게 남기도록 해 줘.
 .github/skills/game-check/SKILL.md 하나로 이 검증 절차를 재사용하고 싶어.
 frontmatter name은 game-check, description은 언제 어떤 게임 검증에 쓰는지 적어 줘.
@@ -50,7 +51,7 @@ App을 **Interactive**로 바꿉니다.
 ```text
 계획을 승인해. TEST_PLAN.md와 .github/skills/game-check/SKILL.md를 작성해 줘.
 TEST_RESULTS.md에는 아직 실행하지 않은 항목을 통과로 쓰지 마.
-게임 규칙·실제 키 입력·빌드/하위 경로 검사를 구분하고 인식 확인 전 멈춰 줘.
+게임 규칙·실제 키 입력·시각 확인·이미지 로딩·빌드/하위 경로를 구분하고 인식 확인 전 멈춰 줘.
 ```
 
 ## App에서 인식과 호출 확인

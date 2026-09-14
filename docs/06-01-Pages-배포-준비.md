@@ -19,7 +19,7 @@
 ```text
 현재 저장소·브랜치·검증 결과를 확인하고 Pages 준비 상태를 점검해 줘.
 공개하면 안 되는 비밀·개인 파일·불필요한 산출물이 추적되는지 확인해 줘.
-Vite base './'와 빌드 dist만 배포하는 경로를 점검해 줘.
+Vite base './', 고정 PNG의 빌드 포함과 런타임 외부 요청 없이 dist만 배포하는 경로를 점검해 줘.
 GitHub Pages source는 GitHub Actions, github-pages 환경은 main만 배포 허용으로 해.
 현재 보호 규칙을 유지하며 필요한 최소 설정 변경을 제안해 줘.
 App/API가 확인한 사실과 사람이 GitHub UI에서 확인/승인할 항목을 나눠 줘.
@@ -56,7 +56,8 @@ GitHub 웹의 **Settings → Pages → Build and deployment → Source**에서
 예상 Pages 주소는 저장소 이름을 포함할 수 있지만 아직 실제 URL로 확정하지 않습니다.
 Vite `base: './'`로 생성 자산이 저장소 하위 경로에서 로드되는지 확인합니다.
 빌드 아티팩트는 게임 결과인 `dist`뿐이며 소스·테스트 결과·node_modules 전체를 올리지 않습니다.
-GitHub Pages는 정적 호스팅이므로 서버 API나 외부 게임 자산에 기대지 않습니다.
+GitHub Pages는 정적 호스팅이므로 서버 API나 실행 중 외부 에셋 서버에 기대지 않습니다.
+외부에서 받은 CC0 PNG도 참가자 저장소에서 빌드에 포함해야 합니다. README 출처와 라이선스 파일도 확인합니다.
 
 ## 눈으로 확인
 
