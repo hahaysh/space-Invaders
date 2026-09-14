@@ -11,7 +11,7 @@
 - demo01과 역사적 샘플은 수정하거나 시작 코드로 복사하지 않습니다. 게임 제목은 **우주 방어**이며 적의 공격은 추가하지 않습니다.
 - 도구 대행과 사람의 App UI 조작을 구분합니다. App 설정 수락, Skill 호출, 자동 지침 적용은 각각 실제 확인 근거가 있어야 합니다.
 
-**현재 상태:** 05-02까지 **11/20단계(55%)**입니다. 실제 요구사항 근거를 대조해 제품 차단이나 필수 확인 누락이 없음을 확인했고, 06-01 Pages 배포 준비를 진행합니다. App 설정 수락·Run UI는 아래와 같이 미확인입니다. 전체 실습 완료나 배포 성공은 아직 아닙니다.
+**현재 상태:** 06-01까지 **12/20단계(60%)**입니다. Pages 게시 소스와 main 전용 배포 환경을 설정했고, 06-02 배포 워크플로를 작성합니다. App 설정 수락·Run UI는 아래와 같이 미확인입니다. 아직 워크플로 실행·실제 공개 배포는 없습니다.
 
 ## 단계별 진행
 
@@ -30,8 +30,8 @@
 | 04-03 | App 설정과 README | 수행 완료·UI 미확인 | [기본 게임 PR](https://github.com/hahaysh/space-Invaders-demo02/pull/3), [병합 4c416e8](https://github.com/hahaysh/space-Invaders-demo02/commit/4c416e85e6235eb66744b1867248ca5623fec53a), [실행 근거](https://github.com/hahaysh/space-Invaders-demo02/issues/2#issuecomment-5658791937) |
 | 05-01 | 게임 검증과 Skill | 완료 | [검증·배포 이슈](https://github.com/hahaysh/space-Invaders-demo02/issues/4), [e8b102b](https://github.com/hahaysh/space-Invaders-demo02/commit/e8b102b4a3afe367d6460af5b306fb3a3f5aa33e), [완료 근거](https://github.com/hahaysh/space-Invaders-demo02/issues/4#issuecomment-5659060325) |
 | 05-02 | 결함 수정과 회귀 검증 | 완료 | [f79cdef](https://github.com/hahaysh/space-Invaders-demo02/commit/f79cdef0bc5dfdbf3edd49837fda36efe7b933f7), [결과 분류](https://github.com/hahaysh/space-Invaders-demo02/issues/4#issuecomment-5659079469); 제품 수정 필요 없음 |
-| 06-01 | Pages 배포 준비 | 진행 중 | 공개 범위·workflow 게시 소스·main 전용 환경 준비 |
-| 06-02 | 배포 워크플로 | 대기 | - |
+| 06-01 | Pages 배포 준비 | 완료 | [df372f2](https://github.com/hahaysh/space-Invaders-demo02/commit/df372f230298ef6518fd422287441aac8d4505fc), [설정 근거](https://github.com/hahaysh/space-Invaders-demo02/issues/4#issuecomment-5659123635); workflow 게시·main 브랜치만 허용 |
+| 06-02 | 배포 워크플로 | 진행 중 | 공식 Action SHA·최소 권한·PR 검사와 main 배포 분리 |
 | 06-03 | PR과 첫 배포 | 대기 | - |
 | 07-01 | 일시정지 요청과 설계 | 대기 | - |
 | 07-02 | 일시정지 구현과 재배포 | 대기 | - |
@@ -61,3 +61,5 @@
 05-01에서는 최신 main에서 검증·첫 배포 이슈의 새 App 세션을 열고 테스트 계획·결과와 Skill을 작성했습니다. Node 19개, Chromium 8개, 빌드, 루트·저장소 하위 경로의 실제 입력과 dist 자산 네 개의 바이트 일치를 확인했습니다. 생성 직후 기존 세션에서는 Skill 호출이 `not found`로 실패해 완료 처리를 보류했습니다. 커밋된 같은 기능 브랜치를 기준으로 새 읽기·검사 전용 세션을 열자 시작 목록에서 `game-check`를 발견했고 첫 `functions.skill` 호출이 실제로 성공했습니다. [로드·실행 근거](https://github.com/hahaysh/space-Invaders-demo02/issues/4#issuecomment-5659022509)를 기존 작성자가 문서에 반영해 원격 `e8b102b`로 게시했습니다. 최초 실패를 보존하며, 새 세션의 명시적 Skill 호출과 무요청 자동 적용·사람의 App UI 승인을 구분합니다. 검사 세션의 추적 파일은 변경하지 않았고 소유 서버·탭을 종료했습니다.
 
 05-02에서는 R01~R10의 실제 근거를 대조하고 제품 결함·검사 누락·환경 문제·도구 제약을 구분했습니다. 제품 차단이나 필수 근거 누락이 없고 코드 등이 변경되지 않았음을 확인해, 가상 결함을 만들거나 같은 검사를 중복 실행하지 않고 결과 기록만 갱신했습니다. 원격 `f79cdef`, 깨끗한 작업 상태와 빈 개발·미리보기 포트를 확인했습니다. 사람의 직접 확인과 App UI 미확인은 제품 검사 통과로 덮지 않습니다.
+
+06-01에서는 demo02의 Public·ADMIN 권한과 공개될 추적 파일 범위를 확인하고 Pages의 `build_type=workflow`를 설정했습니다. `github-pages` 환경은 기존에 없었으며 `main` 브랜치 한 개만 허용하는 정책을 만들고 다시 조회했습니다. 기존 승인자나 대기 시간을 삭제하지 않았습니다. 설정 기록은 원격 `df372f2`에 보존했고 작업 상태는 깨끗합니다. 이 시점에는 워크플로와 배포가 없으므로 Pages URL은 설정값일 뿐 공개 성공의 근거가 아닙니다. 사람의 설정 UI 조작은 도구 대행과 구분합니다.
