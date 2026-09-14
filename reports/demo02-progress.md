@@ -11,7 +11,7 @@
 - demo01과 역사적 샘플은 수정하거나 시작 코드로 복사하지 않습니다. 게임 제목은 **우주 방어**이며 적의 공격은 추가하지 않습니다.
 - 도구 대행과 사람의 App UI 조작을 구분합니다. App 설정 수락, Skill 호출, 자동 지침 적용은 각각 실제 확인 근거가 있어야 합니다.
 
-**현재 상태:** 06-01까지 **12/20단계(60%)**입니다. Pages 게시 소스와 main 전용 배포 환경을 설정했고, 06-02 배포 워크플로를 작성합니다. App 설정 수락·Run UI는 아래와 같이 미확인입니다. 아직 워크플로 실행·실제 공개 배포는 없습니다.
+**현재 상태:** 06-02까지 **13/20단계(65%)**입니다. 배포 워크플로 작성과 로컬 검사를 마쳤고, 06-03 PR·원격 CI·첫 공개 배포를 진행합니다. App 설정 수락·Run UI는 아래와 같이 미확인입니다. 아직 원격 Actions 성공이나 실제 공개 배포를 확인한 단계는 아닙니다.
 
 ## 단계별 진행
 
@@ -31,8 +31,8 @@
 | 05-01 | 게임 검증과 Skill | 완료 | [검증·배포 이슈](https://github.com/hahaysh/space-Invaders-demo02/issues/4), [e8b102b](https://github.com/hahaysh/space-Invaders-demo02/commit/e8b102b4a3afe367d6460af5b306fb3a3f5aa33e), [완료 근거](https://github.com/hahaysh/space-Invaders-demo02/issues/4#issuecomment-5659060325) |
 | 05-02 | 결함 수정과 회귀 검증 | 완료 | [f79cdef](https://github.com/hahaysh/space-Invaders-demo02/commit/f79cdef0bc5dfdbf3edd49837fda36efe7b933f7), [결과 분류](https://github.com/hahaysh/space-Invaders-demo02/issues/4#issuecomment-5659079469); 제품 수정 필요 없음 |
 | 06-01 | Pages 배포 준비 | 완료 | [df372f2](https://github.com/hahaysh/space-Invaders-demo02/commit/df372f230298ef6518fd422287441aac8d4505fc), [설정 근거](https://github.com/hahaysh/space-Invaders-demo02/issues/4#issuecomment-5659123635); workflow 게시·main 브랜치만 허용 |
-| 06-02 | 배포 워크플로 | 진행 중 | 공식 Action SHA·최소 권한·PR 검사와 main 배포 분리 |
-| 06-03 | PR과 첫 배포 | 대기 | - |
+| 06-02 | 배포 워크플로 | 완료 | [7a3abfa](https://github.com/hahaysh/space-Invaders-demo02/commit/7a3abfa1c9d85deb45a51cc24b936767bd6efc3a), [검사 근거](https://github.com/hahaysh/space-Invaders-demo02/issues/4#issuecomment-5659234160); 정책·문법·로컬 검사 |
+| 06-03 | PR과 첫 배포 | 진행 중 | PR 생성·실제 CI 검토 후 정상 병합·공개 확인·기록 PR 한 번 |
 | 07-01 | 일시정지 요청과 설계 | 대기 | - |
 | 07-02 | 일시정지 구현과 재배포 | 대기 | - |
 | 08-01 | 난이도 선택 설계 | 대기 | - |
@@ -63,3 +63,5 @@
 05-02에서는 R01~R10의 실제 근거를 대조하고 제품 결함·검사 누락·환경 문제·도구 제약을 구분했습니다. 제품 차단이나 필수 근거 누락이 없고 코드 등이 변경되지 않았음을 확인해, 가상 결함을 만들거나 같은 검사를 중복 실행하지 않고 결과 기록만 갱신했습니다. 원격 `f79cdef`, 깨끗한 작업 상태와 빈 개발·미리보기 포트를 확인했습니다. 사람의 직접 확인과 App UI 미확인은 제품 검사 통과로 덮지 않습니다.
 
 06-01에서는 demo02의 Public·ADMIN 권한과 공개될 추적 파일 범위를 확인하고 Pages의 `build_type=workflow`를 설정했습니다. `github-pages` 환경은 기존에 없었으며 `main` 브랜치 한 개만 허용하는 정책을 만들고 다시 조회했습니다. 기존 승인자나 대기 시간을 삭제하지 않았습니다. 설정 기록은 원격 `df372f2`에 보존했고 작업 상태는 깨끗합니다. 이 시점에는 워크플로와 배포가 없으므로 Pages URL은 설정값일 뿐 공개 성공의 근거가 아닙니다. 사람의 설정 UI 조작은 도구 대행과 구분합니다.
+
+06-02에서는 공식 Action의 release·tag를 실제 조회해 전체 SHA를 고정한 Pages 워크플로를 작성했습니다. 이벤트 여덟 경로의 정책, actionlint와 Git Bash 문법, Node 19개·Chromium 8개·빌드를 확인했습니다. PR은 검사만 수행하고 main만 아티팩트 업로드·배포하도록 구분했으며 최소 권한·배포 직렬화·main 전용 환경을 유지했습니다. 원격 기록 `7a3abfa`, 깨끗한 작업 상태와 소유 서버 종료를 확인했습니다. 이 단계에서 원격 Actions는 아직 실행되지 않았으므로 로컬 정책 검사로 원격 CI 성공을 대신하지 않습니다.
