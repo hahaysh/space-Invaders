@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="136" viewBox="0 0 800 136" role="img" aria-labelledby="title desc">
+  <title id="title">우주 방어 최종 단계의 카드형 상태바 구성 예시</title>
+  <desc id="desc">짙은 남색 패널 안에 같은 크기의 점수, 목숨, 이번 게임 난이도 카드가 있습니다. 예시 값은 120, 3, 보통입니다. 실제 게임 실행 화면이 아닙니다.</desc>
+  <rect width="800" height="136" rx="24" fill="#0b172a"/>
+  <g fill="#17243a" stroke="#2c405c">
+    <rect x="18" y="16" width="244" height="104" rx="18"/>
+    <rect x="278" y="16" width="244" height="104" rx="18"/>
+    <rect x="538" y="16" width="244" height="104" rx="18"/>
+  </g>
+  <g font-family="'Malgun Gothic', 'Apple SD Gothic Neo', sans-serif">
+    <g fill="#a9bad3" font-size="16">
+      <text x="38" y="50">점수</text>
+      <text x="298" y="50">목숨</text>
+      <text x="558" y="50">이번 게임 난이도</text>
+    </g>
+    <g fill="#f1f5fc" font-size="32" font-weight="700">
+      <text x="38" y="94">120</text>
+      <text x="298" y="94">3</text>
+      <text x="558" y="94">보통</text>
+    </g>
+  </g>
+</svg>
