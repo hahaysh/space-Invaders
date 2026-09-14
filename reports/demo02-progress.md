@@ -11,9 +11,9 @@
 - demo01과 역사적 샘플은 수정하거나 시작 코드로 복사하지 않습니다. 게임 제목은 **우주 방어**이며 적의 공격은 추가하지 않습니다.
 - 도구 대행과 사람의 App UI 조작을 구분합니다. App 설정 수락, Skill 호출, 자동 지침 적용은 각각 실제 확인 근거가 있어야 합니다.
 
-**현재 상태:** 09-01까지 **19/20단계(95%)**입니다. 목숨 구현의 초기 표시·시간 제어 문제를 보완하고 모델 34개·브라우저 17개·빌드를 통과했습니다. 별도 preview를 확인한 뒤 PR·실제 CI·최종 공개 배포로 진행합니다. App 설정 수락·Run UI는 아래와 같이 미확인입니다.
+**현재 상태:** 09-01까지 **19/20단계(95%)**입니다. 목숨 구현·실제 Skill·로컬 회귀·PR CI를 통과하고 정상 병합했습니다. 정확한 main 배포와 최종 공개 게임 확인·원격 기록·정리를 진행합니다. App 설정 수락·Run UI는 아래와 같이 미확인입니다.
 
-**[demo02 공개 게임 실행](https://hahaysh.github.io/space-Invaders-demo02/)** — 일시정지·재개와 세 난이도 선택을 공개 확인했습니다. 목숨은 아직 구현 전입니다.
+**[demo02 공개 게임 실행](https://hahaysh.github.io/space-Invaders-demo02/)** — 일시정지·재개와 세 난이도 선택을 공개 확인했습니다. 목숨은 PR 병합 후 배포 확인 중입니다.
 
 ## 단계별 진행
 
@@ -40,7 +40,7 @@
 | 08-01 | 난이도 선택 설계 | 완료 | [난이도 이슈](https://github.com/hahaysh/space-Invaders-demo02/issues/9), [9cdd019](https://github.com/hahaysh/space-Invaders-demo02/commit/9cdd019c71efd11e7441979b700340a518bd0f23), [설계 근거](https://github.com/hahaysh/space-Invaders-demo02/issues/9#issuecomment-5659950510) |
 | 08-02 | 난이도 구현과 재배포 | 완료 | [난이도 PR](https://github.com/hahaysh/space-Invaders-demo02/pull/10), [main 배포](https://github.com/hahaysh/space-Invaders-demo02/actions/runs/34815699225), [공개 완료 근거](https://github.com/hahaysh/space-Invaders-demo02/issues/9#issuecomment-5660296207) |
 | 09-01 | 목숨 설계 | 완료 | [목숨 이슈](https://github.com/hahaysh/space-Invaders-demo02/issues/11), [df03c0b](https://github.com/hahaysh/space-Invaders-demo02/commit/df03c0bc0831ffdf62b00869e0915a49845ba6b5), [설계 근거](https://github.com/hahaysh/space-Invaders-demo02/issues/11#issuecomment-5660460511) |
-| 09-02 | 목숨 구현과 재배포 | 로컬 회귀 복구·preview 확인 중 | 모델 34개·Chromium 17개·빌드 통과; PR·CI·최종 공개는 아직 진행 전 |
+| 09-02 | 목숨 구현과 재배포 | PR 병합·최종 공개 확인 중 | [목숨 PR](https://github.com/hahaysh/space-Invaders-demo02/pull/12), [PR CI](https://github.com/hahaysh/space-Invaders-demo02/actions/runs/34821389173), [구현·검사 근거](https://github.com/hahaysh/space-Invaders-demo02/issues/11#issuecomment-5661027700) |
 
 ## 착수 시 확인
 
@@ -93,3 +93,5 @@
 09-02의 첫 전체 검사에서는 모델 34개와 빌드가 통과했지만 Chromium 17개 실행 중 실패가 발생했습니다. 현재까지 `clock.pauseAt` 시작 시각 경합 네 건, 첫 rAF 전 목숨 DOM 초기 동기화 누락 한 건, 목숨 세 개를 소진하는 반복 재시작 회귀에서 240초 시간 초과가 관찰됐습니다. 실행 중 코드를 바꾸거나 같은 검사를 중복 실행하지 않고 결과를 수집한 뒤 시간 제어 준비·초기 DOM·검사 시간 예산을 최소한으로 보완할 예정입니다. 소유 개발 서버 PID 34556을 관리하고 있으며 승인·권한 대기는 없습니다. 이 시점에는 PR·병합·공개 배포를 수행하지 않았고 실패가 해결됐다고 주장하지 않습니다.
 
 이후 초기 DOM·시간 제어 경합과 검사 실행 시간 이력을 보존하며 보완했고, 같은 코드에서 Node 34개·빌드·전체 Chromium 17개가 통과했습니다. 전체 브라우저 회귀는 약 3분이었으며, 재도전 검사는 고정 90초를 소비하는 대신 제한된 범위에서 시간을 진행하고 실제 DOM의 목표 상태에 도달하면 멈추도록 조정했습니다. 게임 규칙이나 확인할 경계는 유지합니다. 루트·저장소 하위 경로의 일반 시간 preview와 자산 확인을 진행하며, 원격 PR CI·배포 성공은 아직 확인 전입니다.
+
+이어 실제 Skill 호출·최종 Node 34개·Chromium 17개·빌드와 루트·하위 경로 재도전을 확인했습니다. PR CI `34821389173`의 빌드는 2분 55초에 성공했고 업로드·배포는 건너뛰었습니다. 리뷰 없음·병합 가능 상태와 CI를 다시 확인한 뒤 PR을 main `03b5e6237166e7cd9b8a5b8a872e79a783462c3c`로 정상 병합했습니다. 최종 완료 전에는 해당 main 배포와 실제 공개 목숨 3→2→1→0·재도전·초기화·일시정지·난이도, 이슈의 최종 단계표·근거와 소유 자원 정리를 확인합니다.
