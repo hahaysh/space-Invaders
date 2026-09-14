@@ -11,7 +11,7 @@
 - demo01과 역사적 샘플은 수정하거나 시작 코드로 복사하지 않습니다. 게임 제목은 **우주 방어**이며 적의 공격은 추가하지 않습니다.
 - 도구 대행과 사람의 App UI 조작을 구분합니다. App 설정 수락, Skill 호출, 자동 지침 적용은 각각 실제 확인 근거가 있어야 합니다.
 
-**현재 상태:** 04-02까지 **8/20단계(40%)**입니다. 기본 게임의 승패·재시작까지 구현·확인했고, 04-03 README·App 설정·기본 게임 PR을 진행합니다. 전체 실습 완료나 배포 성공은 아직 아닙니다.
+**현재 상태:** 04-03까지 **9/20단계(45%)**입니다. README·App 설정 파일과 기본 게임을 PR로 main에 반영했고, 별도 검증·배포 이슈를 준비합니다. App 설정 수락·Run UI는 아래와 같이 미확인입니다. 전체 실습 완료나 배포 성공은 아직 아닙니다.
 
 ## 단계별 진행
 
@@ -27,8 +27,8 @@
 | 03-01 | 문서 점검과 이슈 등록 | 완료 | [문서 PR](https://github.com/hahaysh/space-Invaders-demo02/pull/1) 정상 병합 → [기본 게임 이슈](https://github.com/hahaysh/space-Invaders-demo02/issues/2) → 새 App 세션 |
 | 04-01 | 첫 게임 구현 | 완료 | [구현 705303d](https://github.com/hahaysh/space-Invaders-demo02/commit/705303d), [기록 f3ca87f](https://github.com/hahaysh/space-Invaders-demo02/commit/f3ca87fc008aa72b5ecc7cd0891cf4fda291c770), [실행 근거](https://github.com/hahaysh/space-Invaders-demo02/issues/2#issuecomment-5658643378) |
 | 04-02 | 핵심 게임 완성 | 완료 | [d7e987d](https://github.com/hahaysh/space-Invaders-demo02/commit/d7e987d86be42035c837ddfc5d3b9a4bb708c919), [실행 근거](https://github.com/hahaysh/space-Invaders-demo02/issues/2#issuecomment-5658733501); 승리·자연 패배·재시작 |
-| 04-03 | App 설정과 README | 진행 중 | README·수동 App 설정 작성과 기본 게임 PR 준비 |
-| 05-01 | 게임 검증과 Skill | 대기 | - |
+| 04-03 | App 설정과 README | 수행 완료·UI 미확인 | [기본 게임 PR](https://github.com/hahaysh/space-Invaders-demo02/pull/3), [병합 4c416e8](https://github.com/hahaysh/space-Invaders-demo02/commit/4c416e85e6235eb66744b1867248ca5623fec53a), [실행 근거](https://github.com/hahaysh/space-Invaders-demo02/issues/2#issuecomment-5658791937) |
+| 05-01 | 게임 검증과 Skill | 준비 중 | 별도 검증·배포 이슈와 최신 main 기반 App 세션 준비 |
 | 05-02 | 결함 수정과 회귀 검증 | 대기 | - |
 | 06-01 | Pages 배포 준비 | 대기 | - |
 | 06-02 | 배포 워크플로 | 대기 | - |
@@ -55,3 +55,5 @@
 04-01에서는 구현 계획과 20단계 진행표를 먼저 작성한 뒤 M1을 구현했습니다. 실제 `npm ci`, Node 8개, Chromium 입력·DOM·Canvas 검사 5개와 빌드가 통과했고 별도 실제 시간 화면을 확인했습니다. 발견한 favicon 404와 잠금 파일의 환경 미러·자기 링크 문제는 해결하고 실패 기록을 보존했습니다. 원격 기능 브랜치와 작업 HEAD는 `f3ca87f`로 일치하며 깨끗한 상태를 보고했습니다. 이 시점에는 소유 개발 서버 PID 17652만 유지합니다. 사람의 직접 조작·지침 자동 적용·실제 OS 탭 비표시 동작은 미확인이고 합성 검사와 구분합니다.
 
 04-02에서는 같은 이슈 세션에서 적 편대·충돌·점수·승패·재시작을 추가했습니다. Node 19개, Chromium 8개와 빌드가 통과했습니다. 기존 M1 회귀, 실제 키 입력과 제어 시간을 사용한 240점 승리·자연 패배·종료 화면 동결·반복 재시작을 확인했고 일반 시간 입력 화면도 확인했습니다. 원격 커밋은 `d7e987d`이며 작업 상태는 깨끗합니다. 다음 세션으로 넘기기 전 소유 서버·브라우저를 종료하도록 요청했으며, 이 시점에는 종료 완료를 아직 주장하지 않습니다.
+
+04-03에서는 README·수동 App 설정 파일을 만들고 기본 게임 PR의 변경 내용·base·리뷰 상태·로컬 결과를 확인한 뒤 정상 병합했습니다. 원격 main의 코드·README·설정·계획 파일을 확인했습니다. Node 19개, Chromium 8개, 빌드와 preview 실제 입력은 통과했지만 CI는 아직 구성 전입니다. App 창 상태 확인 도구가 안전 정책으로 거부되어 설정 검토·수락과 App Run UI는 미확인으로 남겼으며 우회하지 않았습니다. 파일 생성이나 셸 명령 성공을 App UI 동작 성공으로 대체하지 않습니다. 소유 dev/preview 프로세스 종료·5173/4173 포트 해제·Playwright 탭 닫힘은 확인했고, 내장 browser canvas 패널 닫힘 자체만 미확인입니다.
