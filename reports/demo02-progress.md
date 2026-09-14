@@ -11,7 +11,7 @@
 - demo01과 역사적 샘플은 수정하거나 시작 코드로 복사하지 않습니다. 게임 제목은 **우주 방어**이며 적의 공격은 추가하지 않습니다.
 - 도구 대행과 사람의 App UI 조작을 구분합니다. App 설정 수락, Skill 호출, 자동 지침 적용은 각각 실제 확인 근거가 있어야 합니다.
 
-**현재 상태:** 08-02까지 **18/20단계(90%)**입니다. 난이도 배포와 실제 공개 선택·잠금·기존 일시정지 확인까지 마쳤고, 마지막 목숨 확장의 새 이슈·설계를 준비합니다. App 설정 수락·Run UI는 아래와 같이 미확인입니다.
+**현재 상태:** 09-01까지 **19/20단계(95%)**입니다. 마지막 목숨·재도전 설계를 새 기능 브랜치에 반영했고, 09-02 구현·Skill 재사용·회귀·PR·최종 공개 확인을 진행합니다. App 설정 수락·Run UI는 아래와 같이 미확인입니다.
 
 **[demo02 공개 게임 실행](https://hahaysh.github.io/space-Invaders-demo02/)** — 일시정지·재개와 세 난이도 선택을 공개 확인했습니다. 목숨은 아직 구현 전입니다.
 
@@ -39,8 +39,8 @@
 | 07-02 | 일시정지 구현과 재배포 | 완료 | [개선 PR](https://github.com/hahaysh/space-Invaders-demo02/pull/8), [main 배포](https://github.com/hahaysh/space-Invaders-demo02/actions/runs/34812636787), [공개 완료 근거](https://github.com/hahaysh/space-Invaders-demo02/issues/7#issuecomment-5659849823) |
 | 08-01 | 난이도 선택 설계 | 완료 | [난이도 이슈](https://github.com/hahaysh/space-Invaders-demo02/issues/9), [9cdd019](https://github.com/hahaysh/space-Invaders-demo02/commit/9cdd019c71efd11e7441979b700340a518bd0f23), [설계 근거](https://github.com/hahaysh/space-Invaders-demo02/issues/9#issuecomment-5659950510) |
 | 08-02 | 난이도 구현과 재배포 | 완료 | [난이도 PR](https://github.com/hahaysh/space-Invaders-demo02/pull/10), [main 배포](https://github.com/hahaysh/space-Invaders-demo02/actions/runs/34815699225), [공개 완료 근거](https://github.com/hahaysh/space-Invaders-demo02/issues/9#issuecomment-5660296207) |
-| 09-01 | 목숨 설계 | 준비 중 | 최신 main에서 새 목숨 이슈·기능 세션 준비 |
-| 09-02 | 목숨 구현과 재배포 | 대기 | - |
+| 09-01 | 목숨 설계 | 완료 | [목숨 이슈](https://github.com/hahaysh/space-Invaders-demo02/issues/11), [df03c0b](https://github.com/hahaysh/space-Invaders-demo02/commit/df03c0bc0831ffdf62b00869e0915a49845ba6b5), [설계 근거](https://github.com/hahaysh/space-Invaders-demo02/issues/11#issuecomment-5660460511) |
+| 09-02 | 목숨 구현과 재배포 | 진행 중 | 구현·실제 Skill 호출·전체 회귀·PR·최종 공개·원격 기록·정리 |
 
 ## 착수 시 확인
 
@@ -87,3 +87,5 @@
 08-02에서는 난이도를 구현하고 Skill을 사용해 Node 31개·Chromium 16개·빌드와 기본 선택 UI·잠금·일시정지를 확인했습니다. 초기 select 동기화 결함과 메뉴 재열기 검사 실패를 수정하고 이전 실패 기록을 보존했습니다. PR CI `34815166265` 성공, 리뷰 없음·병합 가능 상태를 다시 확인한 뒤 PR을 main `97766d9e3dfe4542185a4c5a588cd9d46fde18ac`로 정상 병합했습니다. 소유 서버·탭 종료와 깨끗한 작업 상태를 확인했으며, main 배포와 실제 공개 선택·P·잠금 동작 확인 전에는 단계 완료로 집계하지 않습니다.
 
 이후 main의 Actions `34815699225`에서 Node 31개·Chromium 16개·빌드·업로드·배포가 성공했습니다. 아티팩트 네 파일과 공개 HTTP 200 응답의 바이트 일치, 일반 시간 native select의 세 난이도·초기 보통·playing/paused 잠금·P·이동·발사·정지 중 RGBA 불변을 확인했습니다. 최초 공개 관찰에서는 순색 픽셀의 최소 x가 1px 다르게 관측되어 실패를 남겼고, 읽기 전용 재현과 가중 중심·전체 RGBA 검사로 진단했습니다. 제품 결함이 확인되지 않아 코드는 바꾸지 않았습니다. 최종 공개 근거를 이슈에 보존하고 추가 기록 PR 없이 깨끗한 상태와 소유 서버·탭 종료를 확인했습니다.
+
+09-01에서는 목숨 이슈의 새 App 세션과 `hahaysh-space-defense-lives-retry` 기능 브랜치에서 설계 문서 다섯 개만 반영했습니다. 방어선 도달 시 한 번 차감, 남은 목숨에 따른 retry/lost, 실패 화면 동결, 다음 시도의 보존·초기화 항목, 입력·난이도 잠금, 승리 우선순위와 기존 즉시 패배 기대의 의도적 변경을 명시했습니다. 원격 `df03c0b`와 작업 HEAD 일치 및 깨끗한 상태를 확인했습니다. 마지막 단계는 구현·실제 Skill·전체 회귀·PR CI·정상 병합·공개 확인·원격 기록·소유 자원 정리까지 마친 뒤 완료 처리합니다.
