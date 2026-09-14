@@ -21,12 +21,14 @@
 `triggers`를 생략하면 수동 실행이며 `auto_open_in_browser`를 사용할 수 있습니다.
 이번에는 자동 설치·삭제·세션 시작/종료 Hook을 넣지 않습니다.
 
+**모드: Plan**
+
 ```text
 현재 package.json scripts와 실제 실행 결과를 먼저 읽어 줘.
 .github/github-app.yml에 수동 Run과 필요하면 Test를 만드는 최소안을 제안해 줘.
 scripts는 name/command 목록, triggers 없음, auto_open_in_browser 지원 형식을 써 줘.
 실제 dev 명령과 5173을 사용하고 AGENTS 지침 본문을 복제하지 마.
-README.md에는 우주 방어 제목·조작·설치·실행·검사·빌드 방법을 제안해 줘.
+README.md에는 우주 방어 제목·조작·적 탄환·피격·목숨 표시·재시작·설치·실행·검사·빌드 방법을 제안해 줘.
 공개 URL은 아직 없으므로 배포 예정으로만 표시해 줘.
 자동 설치/삭제·무조건 도구 승인·다른 .github 커스터마이징은 만들지 마.
 ```
@@ -34,6 +36,8 @@ README.md에는 우주 방어 제목·조작·설치·실행·검사·빌드 방
 ## 승인 후 작성과 설정 신뢰
 
 App을 **Interactive**로 전환합니다.
+
+**모드: Interactive**
 
 ```text
 승인한 App 설정과 README.md를 작성해 줘.
@@ -55,6 +59,8 @@ demo02에서는 파일·명령을 확인했지만 App UI 확인 도구가 안전
 
 diff와 로컬 결과를 확인한 뒤 아래 원격 작업을 승인합니다.
 
+**모드: Interactive**
+
 ```text
 M1~M3 완료 근거를 계획 표에 정리하고 검토한 파일을 커밋·푸시해 줘.
 main 대상 기본 게임 PR을 만들어 목표·변경·실제 검사·미확인을 적어 줘.
@@ -74,6 +80,8 @@ App PR 화면이나 GitHub 웹에서 base·diff·검사를 확인하고 사람�
 - [ ] 병합된 원격 main을 확인했고 배포 완료로 표시하지 않았습니다.
 
 ## 필요할 때만 보완
+
+**모드: Interactive**
 
 ```text
 App이 실제 적용 중인 설정과 파일 내용을 비교해 줘.

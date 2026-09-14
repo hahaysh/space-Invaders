@@ -12,6 +12,8 @@
 
 App **Interactive**에서 원격 main과 기본 게임 PR 병합을 확인하고 요청합니다.
 
+**모드: Interactive**
+
 ```text
 최신 main에 기본 게임·README·App 설정이 병합됐는지 확인해 줘.
 '우주 방어 검증과 첫 배포' 이슈를 목표·범위·완료 점검·문서 링크로 만들어 줘.
@@ -26,16 +28,24 @@ App **Interactive**에서 원격 main과 기본 게임 PR 병합을 확인하고
 
 ## App Plan: 검증과 Skill 계획
 
+**모드: Plan**
+
 Skill은 작업에 맞을 때 불러오는 지침·자료 묶음입니다.
 AGENTS는 지속적인 작업 원칙, App 설정은 실행 버튼, Skill은 검증 절차를 맡습니다.
 Instruction file은 별도 지침, Prompt file은 재사용 입력, Custom agent는 역할 정의입니다.
 MCP는 외부 도구 연결, Hook은 이벤트 실행입니다. 이들은 설명만 하고 설치하지 않습니다.
 Prompt file의 IDE 사용법을 검증 없이 App 지원으로 가정하지 않습니다.
 
+**모드: Plan**
+
 ```text
 PRD·TRD·기본 게임 이슈·실제 package scripts와 기존 테스트를 읽어 줘.
 전체 필수 요구사항에 자동/수동 확인 경로가 있는 TEST_PLAN.md를 제안해 줘.
 TEST_RESULTS.md는 실제 명령·환경·결과·미확인만 짧게 남기도록 해 줘.
+데스크톱 키보드·버튼 조작과 적 탄환·피격·목숨 전환은 필수 검증으로 포함하고,
+작은 viewport의 반응형 표시와
+모바일 터치 플레이를 구분해 줘. 모바일 터치·가상 버튼·화면 회전 대응은 미지원 또는
+미검증으로 기록하고 지원 완료로 추정하지 않게 해 줘.
 .github/skills/game-check/SKILL.md 하나로 이 검증 절차를 재사용하고 싶어.
 frontmatter name은 game-check, description은 언제 어떤 게임 검증에 쓰는지 적어 줘.
 본문은 실제 scripts·TEST_PLAN 참조, 필요한 검사 실행, 정직한 결과 보고로 해 줘.
@@ -45,7 +55,11 @@ frontmatter name은 game-check, description은 언제 어떤 게임 검증에 �
 
 ## 승인 후 파일 작성
 
+**모드: Interactive**
+
 App을 **Interactive**로 바꿉니다.
+
+**모드: Interactive**
 
 ```text
 계획을 승인해. TEST_PLAN.md와 .github/skills/game-check/SKILL.md를 작성해 줘.
@@ -66,6 +80,8 @@ demo02에서도 기존 세션의 `not found`를 보존한 뒤 같은 기능 브�
 
 인식됐다면 다음 짧은 요청으로 **실제 Skill 호출**을 확인합니다.
 
+**모드: Interactive**
+
 ```text
 game-check Skill을 사용해 현재 게임을 TEST_PLAN에 따라 검증해 줘.
 실제 호출 여부와 실행 명령·결과·미확인을 TEST_RESULTS.md에 구분해 줘.
@@ -81,8 +97,13 @@ App의 호출 기록/표시를 확인하고 단순 파일 읽기와 구별합니
 - [ ] Skill에 `name`·`description`이 있고 실제 scripts를 재사용합니다.
 - [ ] App 인식과 실제 호출의 확인 여부를 정직하게 구분했습니다.
 - [ ] 실제 검사·화면 확인·빌드 결과 또는 실패/미실행 사유가 있습니다.
+- [ ] 데스크톱 키보드·버튼 검증과 모바일 미지원·미검증 범위가 구분되어 있습니다.
+- [ ] 적 탄환의 발사·충돌·목숨 차감·재도전·최종 패배에 실제 근거가 있습니다.
+- [ ] 적 잔존 상태에서 방어선 도달·피격 동시 발생 시 방어선 도달 우선 `lost` 근거가 있습니다.
 
 ## 필요할 때만 보완
+
+**모드: Interactive**
 
 ```text
 App에서 game-check를 인식/호출하지 못한 상태를 기록해 줘.
